@@ -598,6 +598,146 @@ module glmff_mat
         module procedure inverse_dmat4x4
     end interface inverse
 
+    public :: ortho
+    interface ortho
+        module procedure ortho_mat
+        module procedure ortho_dmat
+        module procedure ortho_full_mat
+        module procedure ortho_full_dmat
+    end interface ortho
+
+    public :: orthoLH_ZO
+    interface orthoLH_ZO
+        module procedure orthoLH_ZO_mat
+        module procedure orthoLH_ZO_dmat
+    end interface orthoLH_ZO
+
+    public :: orthoLH_NO
+    interface orthoLH_NO
+        module procedure orthoLH_NO_mat
+        module procedure orthoLH_NO_dmat
+    end interface orthoLH_NO
+
+    public :: orthoRH_ZO
+    interface orthoRH_ZO
+        module procedure orthoRH_ZO_mat
+        module procedure orthoRH_ZO_dmat
+    end interface orthoRH_ZO
+
+    public :: orthoRH_NO
+    interface orthoRH_NO
+        module procedure orthoRH_NO_mat
+        module procedure orthoRH_NO_dmat
+    end interface orthoRH_NO
+
+    public :: frustum
+    interface frustum
+        module procedure frustum_full_mat
+        module procedure frustum_full_dmat
+    end interface frustum
+
+    public :: frustumLH_ZO
+    interface frustumLH_ZO
+        module procedure frustumLH_ZO_mat
+        module procedure frustumLH_ZO_dmat
+    end interface frustumLH_ZO
+
+    public :: frustumLH_NO
+    interface frustumLH_NO
+        module procedure frustumLH_NO_mat
+        module procedure frustumLH_NO_dmat
+    end interface frustumLH_NO
+
+    public :: frustumRH_ZO
+    interface frustumRH_ZO
+        module procedure frustumRH_ZO_mat
+        module procedure frustumRH_ZO_dmat
+    end interface frustumRH_ZO
+
+    public :: frustumRH_NO
+    interface frustumRH_NO
+        module procedure frustumRH_NO_mat
+        module procedure frustumRH_NO_dmat
+    end interface frustumRH_NO
+
+    public :: perspective
+    interface perspective
+        module procedure perspective_full_mat
+        module procedure perspective_full_dmat
+        module procedure perspectiveFov_full_mat
+        module procedure perspectiveFov_full_dmat
+    end interface perspective
+
+    public :: perspectiveLH_ZO
+    interface perspectiveLH_ZO
+        module procedure perspectiveLH_ZO_mat
+        module procedure perspectiveLH_ZO_dmat
+        module procedure perspectiveFovLH_ZO_mat
+        module procedure perspectiveFovLH_ZO_dmat
+    end interface perspectiveLH_ZO
+
+    public :: perspectiveLH_NO
+    interface perspectiveLH_NO
+        module procedure perspectiveLH_NO_mat
+        module procedure perspectiveLH_NO_dmat
+        module procedure perspectiveFovLH_NO_mat
+        module procedure perspectiveFovLH_NO_dmat
+    end interface perspectiveLH_NO
+
+    public :: perspectiveRH_ZO
+    interface perspectiveRH_ZO
+        module procedure perspectiveRH_ZO_mat
+        module procedure perspectiveRH_ZO_dmat
+        module procedure perspectiveFovRH_ZO_mat
+        module procedure perspectiveFovRH_ZO_dmat
+    end interface perspectiveRH_ZO
+
+    public :: perspectiveRH_NO
+    interface perspectiveRH_NO
+        module procedure perspectiveRH_NO_mat
+        module procedure perspectiveRH_NO_dmat
+        module procedure perspectiveFovRH_NO_mat
+        module procedure perspectiveFovRH_NO_dmat
+    end interface perspectiveRH_NO
+
+    public :: infinitePerspective
+    interface infinitePerspective
+        module procedure infinitePerspective_full_mat
+        module procedure infinitePerspective_full_dmat
+    end interface infinitePerspective
+
+    public :: infinitePerspectiveLH_ZO
+    interface infinitePerspectiveLH_ZO
+        module procedure infinitePerspectiveLH_ZO_mat
+        module procedure infinitePerspectiveLH_ZO_dmat
+    end interface infinitePerspectiveLH_ZO
+
+    public :: infinitePerspectiveLH_NO
+    interface infinitePerspectiveLH_NO
+        module procedure infinitePerspectiveLH_NO_mat
+        module procedure infinitePerspectiveLH_NO_dmat
+    end interface infinitePerspectiveLH_NO
+
+    public :: infinitePerspectiveRH_ZO
+    interface infinitePerspectiveRH_ZO
+        module procedure infinitePerspectiveRH_ZO_mat
+        module procedure infinitePerspectiveRH_ZO_dmat
+    end interface infinitePerspectiveRH_ZO
+
+    public :: infinitePerspectiveRH_NO
+    interface infinitePerspectiveRH_NO
+        module procedure infinitePerspectiveRH_NO_mat
+        module procedure infinitePerspectiveRH_NO_dmat
+    end interface infinitePerspectiveRH_NO
+
+    public :: tweakedInfinitePerspective
+    interface tweakedInfinitePerspective
+        module procedure tweakedInfinitePerspective_mat
+        module procedure tweakedInfinitePerspective_dmat
+        module procedure tweakedInfinitePerspective_eps_mat
+        module procedure tweakedInfinitePerspective_eps_dmat
+    end interface tweakedInfinitePerspective
+
     contains
 
 #undef MATRIX_TYPE_NCOL
@@ -659,12 +799,14 @@ module glmff_mat
 #define MATRIX_TYPE_NAME mat
 #define SCALAR_TYPE_KIND real32
 #include "detail/mat_square.inc"
+#include "detail/mat_clip_space.inc"
 
 #undef MATRIX_TYPE_NAME
 #undef SCALAR_TYPE_KIND
 #define MATRIX_TYPE_NAME dmat
 #define SCALAR_TYPE_KIND real64
 #include "detail/mat_square.inc"
+#include "detail/mat_clip_space.inc"
 
 end module glmff_mat
 

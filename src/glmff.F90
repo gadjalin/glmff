@@ -43,5 +43,11 @@ module glmff
     public :: matrixCompMult, outerProduct, transpose, determinant, inverse
     public :: angle, axis, angleAxis, lerp, slerp, conjugate, rotate
 
+    public :: ortho, orthoRH_NO, orthoRH_ZO, orthoLH_NO, orthoLH_ZO
+    public :: frustum, frustumRH_NO, frustumRH_ZO, frustumLH_NO, frustumLH_ZO
+    public :: perspective, perspectiveRH_NO, perspectiveRH_ZO, perspectiveLH_NO, perspectiveLH_ZO
+    public :: infinitePerspective, infinitePerspectiveRH_NO, infinitePerspectiveRH_ZO, &
+              infinitePerspectiveLH_NO, infinitePerspectiveLH_ZO, tweakedInfinitePerspective
+
 end module glmff
 
