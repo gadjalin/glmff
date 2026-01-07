@@ -2,6 +2,7 @@ module glmff
 
     use glmff_vec
     use glmff_mat
+    use glmff_quat
 
     implicit none
     private
@@ -24,6 +25,8 @@ module glmff
     public :: mat4x3, dmat4x3
     public :: mat4x4, dmat4x4, mat4, dmat4
 
+    public :: quat, dquat
+
     ! -------------
     ! --- Operators
     ! -------------
@@ -38,6 +41,7 @@ module glmff
     public :: floor, ceil, fract, trunc, round, clamp
     public :: mix, step, smoothstep, fma
     public :: matrixCompMult, outerProduct, transpose, determinant, inverse
+    public :: angle, axis, angleAxis, lerp, slerp, conjugate, rotate
 
 end module glmff
 
