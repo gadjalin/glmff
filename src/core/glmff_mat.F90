@@ -11,9 +11,8 @@ module glmff_mat
     use glmff_mat4x3, only: mat4x3, dmat4x3
     use glmff_mat4x4, only: mat4x4, dmat4x4, mat4 => mat4x4, dmat4 => dmat4x4
 
-    use glmff_vec2, only: vec2, dvec2
-    use glmff_vec3, only: vec3, dvec3
-    use glmff_vec4, only: vec4, dvec4
+    use glmff_vec, only: vec2, dvec2, vec3, dvec3, vec4, dvec4, normalize, cross, dot, &
+        operator(-), operator(*)
 
 #include "glmff_macros.h"
 
@@ -738,6 +737,84 @@ module glmff_mat
         module procedure tweakedInfinitePerspective_eps_dmat
     end interface tweakedInfinitePerspective
 
+    public :: projectNO
+    interface projectNO
+        module procedure projectNO_mat
+        module procedure projectNO_dmat
+    end interface projectNO
+
+    public :: projectZO
+    interface projectZO
+        module procedure projectZO_mat
+        module procedure projectZO_dmat
+    end interface projectZO
+
+    public :: project
+    interface project
+        module procedure project_mat
+        module procedure project_dmat
+    end interface project
+
+    public :: unprojectNO
+    interface unprojectNO
+        module procedure unprojectNO_mat
+        module procedure unprojectNO_dmat
+    end interface unprojectNO
+
+    public :: unprojectZO
+    interface unprojectZO
+        module procedure unprojectZO_mat
+        module procedure unprojectZO_dmat
+    end interface unprojectZO
+
+    public :: unproject
+    interface unproject
+        module procedure unproject_mat
+        module procedure unproject_dmat
+    end interface unproject
+
+    public :: translate
+    interface translate
+        module procedure translate_mat
+        module procedure translate_dmat
+    end interface translate
+
+    public :: rotate
+    interface rotate
+        module procedure rotate_mat
+        module procedure rotate_dmat
+    end interface rotate
+
+    public :: scale
+    interface scale
+        module procedure scale_mat
+        module procedure scale_dmat
+    end interface scale
+
+    public :: shear
+    interface shear
+        module procedure shear_mat
+        module procedure shear_dmat
+    end interface shear
+
+    public :: lookAtRH
+    interface lookAtRH
+        module procedure lookAtRH_mat
+        module procedure lookAtRH_dmat
+    end interface lookAtRH
+
+    public :: lookAtLH
+    interface lookAtLH
+        module procedure lookAtLH_mat
+        module procedure lookAtLH_dmat
+    end interface lookAtLH
+
+    public :: lookAt
+    interface lookAt
+        module procedure lookAt_mat
+        module procedure lookAt_dmat
+    end interface lookAt
+
     contains
 
 #undef MATRIX_TYPE_NCOL
@@ -794,19 +871,27 @@ module glmff_mat
 #define MATRIX_TYPE_NROW 4
 #include "detail/mat_impl.inc"
 
+#undef VECTOR_TYPE_NAME
 #undef MATRIX_TYPE_NAME
 #undef SCALAR_TYPE_KIND
+#define VECTOR_TYPE_NAME vec
 #define MATRIX_TYPE_NAME mat
 #define SCALAR_TYPE_KIND real32
 #include "detail/mat_square.inc"
 #include "detail/mat_clip_space.inc"
+#include "detail/mat_projection.inc"
+#include "detail/mat_transform.inc"
 
+#undef VECTOR_TYPE_NAME
 #undef MATRIX_TYPE_NAME
 #undef SCALAR_TYPE_KIND
+#define VECTOR_TYPE_NAME dvec
 #define MATRIX_TYPE_NAME dmat
 #define SCALAR_TYPE_KIND real64
 #include "detail/mat_square.inc"
 #include "detail/mat_clip_space.inc"
+#include "detail/mat_projection.inc"
+#include "detail/mat_transform.inc"
 
 end module glmff_mat
 
