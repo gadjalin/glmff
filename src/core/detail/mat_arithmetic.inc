@@ -1,3 +1,11 @@
+pure function CAT(pos_,MATRIX_TYPE_FULL)(mat) result(res)
+    implicit none
+    type(MATRIX_TYPE_FULL), intent(in) :: mat
+    type(MATRIX_TYPE_FULL) :: res
+
+    res = mat
+end function
+
 pure function CAT(add_,MATRIX_TYPE_FULL)(lhs, rhs) result(res)
     implicit none
     type(MATRIX_TYPE_FULL), intent(in) :: lhs, rhs

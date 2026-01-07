@@ -34,5 +34,6 @@ TARGET_SOURCES(glmff PRIVATE
     core/glmff_mat4x3.F90
     core/glmff_mat4x4.F90
     core/glmff_mat.F90
+    core/glmff_quat.F90
 )
 

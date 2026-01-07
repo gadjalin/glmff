@@ -12,22 +12,22 @@ module glmff_vec3
 
     public :: bvec3
     type :: bvec3
-        logical, dimension(3) :: data
+        logical, dimension(3) :: data = .false.
     end type bvec3
 
     public :: ivec3
     type :: ivec3
-        integer(kind=int32), dimension(3) :: data
+        integer(kind=int32), dimension(3) :: data = 0
     end type ivec3
 
     public :: vec3
     type :: vec3
-        real(kind=real32), dimension(3) :: data
+        real(kind=real32), dimension(3) :: data = 0.0
     end type vec3
 
     public :: dvec3
     type :: dvec3
-        real(kind=real64), dimension(3) :: data
+        real(kind=real64), dimension(3) :: data = 0.0d0
     end type dvec3
 
     ! ----------------

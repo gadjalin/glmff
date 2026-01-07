@@ -20,6 +20,9 @@ module glmff_vec
 
     public :: operator(+)
     interface operator(+)
+        module procedure pos_ivec2
+        module procedure pos_vec2
+        module procedure pos_dvec2
         module procedure add_ivec2
         module procedure add_vec2
         module procedure add_dvec2
@@ -30,6 +33,9 @@ module glmff_vec
         module procedure add_vec2_scalar
         module procedure add_dvec2_scalar
 
+        module procedure pos_ivec3
+        module procedure pos_vec3
+        module procedure pos_dvec3
         module procedure add_ivec3
         module procedure add_vec3
         module procedure add_dvec3
@@ -40,6 +46,9 @@ module glmff_vec
         module procedure add_vec3_scalar
         module procedure add_dvec3_scalar
 
+        module procedure pos_ivec4
+        module procedure pos_vec4
+        module procedure pos_dvec4
         module procedure add_ivec4
         module procedure add_vec4
         module procedure add_dvec4

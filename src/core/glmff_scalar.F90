@@ -106,23 +106,11 @@ module glmff_scalar
         module procedure floatBitsToInt_real64
     end interface floatBitsToInt
 
-    public :: floatBitsToUInt
-    interface floatBitsToUInt
-        module procedure floatBitsToInt_real32
-        module procedure floatBitsToInt_real64
-    end interface floatBitsToUInt
-
     public :: intBitsToFloat
     interface intBitsToFloat
         module procedure intBitsToFloat_int32
         module procedure intBitsToFloat_int64
     end interface intBitsToFloat
-
-    public :: uintBitsToFloat
-    interface uintBitsToFloat
-        module procedure intBitsToFloat_int32
-        module procedure intBitsToFloat_int64
-    end interface uintBitsToFloat
 
     public :: isinf
     interface isinf
@@ -147,8 +135,6 @@ module glmff_scalar
         module procedure ldexp_real32
         module procedure ldexp_real64
     end interface ldexp
-
-    public :: pi, dpi
 
 contains
 

@@ -12,22 +12,22 @@ module glmff_vec2
 
     public :: bvec2
     type :: bvec2
-        logical, dimension(2) :: data
+        logical, dimension(2) :: data = .false.
     end type bvec2
 
     public :: ivec2
     type :: ivec2
-        integer(kind=int32), dimension(2) :: data
+        integer(kind=int32), dimension(2) :: data = 0
     end type ivec2
 
     public :: vec2
     type :: vec2
-        real(kind=real32), dimension(2) :: data
+        real(kind=real32), dimension(2) :: data = 0.0
     end type vec2
 
     public :: dvec2
     type :: dvec2
-        real(kind=real64), dimension(2) :: data
+        real(kind=real64), dimension(2) :: data = 0.0d0
     end type dvec2
 
     ! ----------------

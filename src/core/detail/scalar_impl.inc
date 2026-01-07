@@ -36,5 +36,3 @@
 #include "real_geometric.inc"
 #include "real_common.inc"
 
-#include "scalar_constants.inc"
-

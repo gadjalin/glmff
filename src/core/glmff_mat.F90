@@ -36,46 +36,64 @@ module glmff_mat
 
     public :: operator(+)
     interface operator(+)
+        module procedure pos_mat2x2
+        module procedure pos_dmat2x2
         module procedure add_mat2x2
         module procedure add_dmat2x2
         module procedure add_mat2x2_scalar
         module procedure add_dmat2x2_scalar
 
+        module procedure pos_mat2x3
+        module procedure pos_dmat2x3
         module procedure add_mat2x3
         module procedure add_dmat2x3
         module procedure add_mat2x3_scalar
         module procedure add_dmat2x3_scalar
 
+        module procedure pos_mat2x4
+        module procedure pos_dmat2x4
         module procedure add_mat2x4
         module procedure add_dmat2x4
         module procedure add_mat2x4_scalar
         module procedure add_dmat2x4_scalar
 
+        module procedure pos_mat3x2
+        module procedure pos_dmat3x2
         module procedure add_mat3x2
         module procedure add_dmat3x2
         module procedure add_mat3x2_scalar
         module procedure add_dmat3x2_scalar
 
+        module procedure pos_mat3x3
+        module procedure pos_dmat3x3
         module procedure add_mat3x3
         module procedure add_dmat3x3
         module procedure add_mat3x3_scalar
         module procedure add_dmat3x3_scalar
 
+        module procedure pos_mat3x4
+        module procedure pos_dmat3x4
         module procedure add_mat3x4
         module procedure add_dmat3x4
         module procedure add_mat3x4_scalar
         module procedure add_dmat3x4_scalar
 
+        module procedure pos_mat4x2
+        module procedure pos_dmat4x2
         module procedure add_mat4x2
         module procedure add_dmat4x2
         module procedure add_mat4x2_scalar
         module procedure add_dmat4x2_scalar
 
+        module procedure pos_mat4x3
+        module procedure pos_dmat4x3
         module procedure add_mat4x3
         module procedure add_dmat4x3
         module procedure add_mat4x3_scalar
         module procedure add_dmat4x3_scalar
 
+        module procedure pos_mat4x4
+        module procedure pos_dmat4x4
         module procedure add_mat4x4
         module procedure add_dmat4x4
         module procedure add_mat4x4_scalar

@@ -12,22 +12,22 @@ module glmff_vec4
 
     public :: bvec4
     type :: bvec4
-        logical, dimension(4) :: data
+        logical, dimension(4) :: data = .false.
     end type bvec4
 
     public :: ivec4
     type :: ivec4
-        integer(kind=int32), dimension(4) :: data
+        integer(kind=int32), dimension(4) :: data = 0
     end type ivec4
 
     public :: vec4
     type :: vec4
-        real(kind=real32), dimension(4) :: data
+        real(kind=real32), dimension(4) :: data = 0.0
     end type vec4
 
     public :: dvec4
     type :: dvec4
-        real(kind=real64), dimension(4) :: data
+        real(kind=real64), dimension(4) :: data = 0.0d0
     end type dvec4
 
     ! ----------------

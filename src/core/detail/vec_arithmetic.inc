@@ -1,3 +1,11 @@
+pure function CAT(pos_,VECTOR_TYPE_FULL)(vec) result(res)
+    implicit none
+    type(VECTOR_TYPE_FULL), intent(in) :: vec
+    type(VECTOR_TYPE_FULL) :: res
+
+    res = vec
+end function
+
 pure function CAT(add_,VECTOR_TYPE_FULL)(lhs, rhs) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: lhs, rhs

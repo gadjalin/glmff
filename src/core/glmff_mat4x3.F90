@@ -13,12 +13,20 @@ module glmff_mat4x3
 
     public :: mat4x3
     type :: mat4x3
-        real(kind=real32), dimension(3,4) :: data
+        real(kind=real32), dimension(3,4) :: data = reshape( &
+            [1.0, 0.0, 0.0, &
+             0.0, 1.0, 0.0, &
+             0.0, 0.0, 1.0, &
+             0.0, 0.0, 0.0], [3,4])
     end type mat4x3
 
     public :: dmat4x3
     type :: dmat4x3
-        real(kind=real64), dimension(3,4) :: data
+        real(kind=real64), dimension(3,4) :: data = reshape( &
+            [1.0d0, 0.0d0, 0.0d0, &
+             0.0d0, 1.0d0, 0.0d0, &
+             0.0d0, 0.0d0, 1.0d0, &
+             0.0d0, 0.0d0, 0.0d0], [3,4])
     end type dmat4x3
 
     ! ----------------

@@ -31,8 +31,7 @@ pure function CAT(cross_,VECTOR_TYPE_FULL)(x, y) result(res)
     res%data = [ &
         x%data(2)*y%data(3) - x%data(3)*y%data(2), &
         x%data(3)*y%data(1) - x%data(1)*y%data(3), &
-        x%data(1)*y%data(2) - x%data(2)*y%data(1)  &
-    ]
+        x%data(1)*y%data(2) - x%data(2)*y%data(1) ]
 end function
 #endif
 
