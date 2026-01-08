@@ -1086,6 +1086,12 @@ module glmff_mat
         module procedure unproject_dmat
     end interface unproject
 
+    public :: pickMatrix
+    interface pickMatrix
+        module procedure pickMatrix_mat
+        module procedure pickMatrix_dmat
+    end interface pickMatrix
+
     public :: lookAtRH
     interface lookAtRH
         module procedure lookAtRH_mat

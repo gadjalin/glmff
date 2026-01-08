@@ -40,23 +40,27 @@ module glmff
     ! --- Operators & Functions
     ! -------------------------
 
-    public :: operator(+), operator(-), operator(*), operator(/)
-    public :: operator(.dot.), operator(.cross.)
-    public :: operator(==), operator(/=)
-    public :: dot, cross, length, distance, normalize, faceforward, reflect, refract
-    public :: any, all, operator(.not.)
+    public :: operator(+), operator(-), operator(*), operator(/), operator(**)
+    public :: operator(.dot.), dot, operator(.cross.), cross
+    public :: operator(==), operator(/=), operator(.not.), any, all
     public :: lessThan, lessThanEqual, greaterThan, greaterThanEqual, equal, notEqual
-    public :: min, max, abs, sign, mod
-    public :: floor, ceil, fract, trunc, round, clamp
-    public :: mix, step, smoothstep, fma
-    public :: matrixCompMult, outerProduct, transpose, determinant, inverse
-    public :: angle, axis, angleAxis, lerp, slerp, conjugate, rotate
 
+    public :: min, max, abs, sign, mod, exp, log, sqrt
+    public :: floor, ceil, fract, trunc, round, clamp
+
+    public :: length, distance, normalize, faceforward, reflect, refract
+    public :: mix, step, smoothstep, fma
+    public :: angle, axis, angleAxis, lerp, slerp, conjugate
+
+    public :: matrixCompMult, outerProduct, transpose, determinant, inverse
+    public :: translate, rotate, scale, shear
+    public :: project, projectZO, projectNO, unproject, unprojectZO, unprojectNO, pickMatrix
     public :: ortho, orthoRH_NO, orthoRH_ZO, orthoLH_NO, orthoLH_ZO
     public :: frustum, frustumRH_NO, frustumRH_ZO, frustumLH_NO, frustumLH_ZO
     public :: perspective, perspectiveRH_NO, perspectiveRH_ZO, perspectiveLH_NO, perspectiveLH_ZO
     public :: infinitePerspective, infinitePerspectiveRH_NO, infinitePerspectiveRH_ZO, &
               infinitePerspectiveLH_NO, infinitePerspectiveLH_ZO, tweakedInfinitePerspective
+    public :: lookAt, lookAtLH, lookAtRH
 
 end module glmff
 

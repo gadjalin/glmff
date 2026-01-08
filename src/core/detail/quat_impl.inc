@@ -13,6 +13,7 @@
 #include "quat_comparison.inc"
 #include "quat_common.inc"
 #include "quat_geometric.inc"
+#include "quat_exponential.inc"
 #include "quat_relational.inc"
 #include "quat_trigonometric.inc"
 
@@ -31,6 +32,7 @@
 #include "quat_comparison.inc"
 #include "quat_common.inc"
 #include "quat_geometric.inc"
+#include "quat_exponential.inc"
 #include "quat_relational.inc"
 #include "quat_trigonometric.inc"
 

@@ -215,6 +215,30 @@ module glmff_quat
         module procedure inverse_dquat
     end interface inverse
 
+    public :: exp
+    interface exp
+        module procedure exp_quat
+        module procedure exp_dquat
+    end interface exp
+
+    public :: log
+    interface log
+        module procedure log_quat
+        module procedure log_dquat
+    end interface log
+
+    public :: operator(**)
+    interface operator(**)
+        module procedure pow_quat
+        module procedure pow_dquat
+    end interface operator(**)
+
+    public :: sqrt
+    interface sqrt
+        module procedure sqrt_quat
+        module procedure sqrt_dquat
+    end interface sqrt
+
     public :: isnan
     interface isnan
         module procedure isnan_quat

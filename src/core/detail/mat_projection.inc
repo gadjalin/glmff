@@ -133,3 +133,29 @@ pure function CAT(unproject_,MATRIX_TYPE_NAME)(win, modelview, proj, viewport) r
 #endif
 end function
 
+pure function CAT(pickMatrix_,MATRIX_TYPE_NAME)(centre, delta, viewport) result(res)
+    implicit none
+    type(CAT(VECTOR_TYPE_NAME,2)), intent(in) :: centre, delta
+    type(CAT(VECTOR_TYPE_NAME,4)), intent(in) :: viewport
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+    type(CAT(VECTOR_TYPE_NAME,3)) :: tmp1, tmp2
+    real(kind=SCALAR_TYPE_KIND), parameter :: zero = CAT(0_,SCALAR_TYPE_KIND)
+    real(kind=SCALAR_TYPE_KIND), parameter :: one = CAT(1_,SCALAR_TYPE_KIND)
+    real(kind=SCALAR_TYPE_KIND), parameter :: two = CAT(2_,SCALAR_TYPE_KIND)
+
+    if (.not. (delta%data(1) > zero .and. delta%data(2) > zero)) return ! Error
+
+    tmp1%data = [ &
+        (viewport%data(3) - two * (centre%data(1) - viewport%data(1))) / delta%data(1), &
+        (viewport%data(4) - two * (centre%data(2) - viewport%data(2))) / delta%data(2), &
+        zero ]
+    tmp2%data = [ &
+        viewport%data(3) / delta%data(1), &
+        viewport%data(4) / delta%data(2), &
+        one ]
+
+    res = translate(res, tmp1)
+    res = scale(res, tmp2)
+end function
+
