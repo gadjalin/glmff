@@ -29,6 +29,190 @@ module glmff_mat
     public :: mat4x3, dmat4x3
     public :: mat4x4, dmat4x4, mat4, dmat4
 
+    ! --------------
+    ! --- Conversion
+    ! --------------
+
+    public :: to_mat2
+    interface to_mat2
+        module procedure mat2x3_to_mat2x2
+        module procedure mat2x4_to_mat2x2
+        module procedure mat3x2_to_mat2x2
+        module procedure mat3x3_to_mat2x2
+        module procedure mat3x4_to_mat2x2
+        module procedure mat4x2_to_mat2x2
+        module procedure mat4x3_to_mat2x2
+        module procedure mat4x4_to_mat2x2
+        module procedure dmat2x3_to_mat2x2
+        module procedure dmat2x4_to_mat2x2
+        module procedure dmat3x2_to_mat2x2
+        module procedure dmat3x3_to_mat2x2
+        module procedure dmat3x4_to_mat2x2
+        module procedure dmat4x2_to_mat2x2
+        module procedure dmat4x3_to_mat2x2
+        module procedure dmat4x4_to_mat2x2
+    end interface to_mat2
+
+    public :: to_mat2x3
+    interface to_mat2x3
+        module procedure mat2x2_to_mat2x3
+        module procedure mat2x4_to_mat2x3
+        module procedure mat3x2_to_mat2x3
+        module procedure mat3x3_to_mat2x3
+        module procedure mat3x4_to_mat2x3
+        module procedure mat4x2_to_mat2x3
+        module procedure mat4x3_to_mat2x3
+        module procedure mat4x4_to_mat2x3
+        module procedure dmat2x2_to_mat2x3
+        module procedure dmat2x4_to_mat2x3
+        module procedure dmat3x2_to_mat2x3
+        module procedure dmat3x3_to_mat2x3
+        module procedure dmat3x4_to_mat2x3
+        module procedure dmat4x2_to_mat2x3
+        module procedure dmat4x3_to_mat2x3
+        module procedure dmat4x4_to_mat2x3
+    end interface to_mat2x3
+
+    public :: to_mat2x4
+    interface to_mat2x4
+        module procedure mat2x2_to_mat2x4
+        module procedure mat2x3_to_mat2x4
+        module procedure mat3x2_to_mat2x4
+        module procedure mat3x3_to_mat2x4
+        module procedure mat3x4_to_mat2x4
+        module procedure mat4x2_to_mat2x4
+        module procedure mat4x3_to_mat2x4
+        module procedure mat4x4_to_mat2x4
+        module procedure dmat2x2_to_mat2x4
+        module procedure dmat2x3_to_mat2x4
+        module procedure dmat3x2_to_mat2x4
+        module procedure dmat3x3_to_mat2x4
+        module procedure dmat3x4_to_mat2x4
+        module procedure dmat4x2_to_mat2x4
+        module procedure dmat4x3_to_mat2x4
+        module procedure dmat4x4_to_mat2x4
+    end interface to_mat2x4
+
+    public :: to_mat3x2
+    interface to_mat3x2
+        module procedure mat2x2_to_mat3x2
+        module procedure mat2x3_to_mat3x2
+        module procedure mat2x4_to_mat3x2
+        module procedure mat3x3_to_mat3x2
+        module procedure mat3x4_to_mat3x2
+        module procedure mat4x2_to_mat3x2
+        module procedure mat4x3_to_mat3x2
+        module procedure mat4x4_to_mat3x2
+        module procedure dmat2x2_to_mat3x2
+        module procedure dmat2x3_to_mat3x2
+        module procedure dmat2x4_to_mat3x2
+        module procedure dmat3x3_to_mat3x2
+        module procedure dmat3x4_to_mat3x2
+        module procedure dmat4x2_to_mat3x2
+        module procedure dmat4x3_to_mat3x2
+        module procedure dmat4x4_to_mat3x2
+    end interface to_mat3x2
+
+    public :: to_mat3
+    interface to_mat3
+        module procedure mat2x2_to_mat3x3
+        module procedure mat2x3_to_mat3x3
+        module procedure mat2x4_to_mat3x3
+        module procedure mat3x2_to_mat3x3
+        module procedure mat3x4_to_mat3x3
+        module procedure mat4x2_to_mat3x3
+        module procedure mat4x3_to_mat3x3
+        module procedure mat4x4_to_mat3x3
+        module procedure dmat2x2_to_mat3x3
+        module procedure dmat2x3_to_mat3x3
+        module procedure dmat2x4_to_mat3x3
+        module procedure dmat3x2_to_mat3x3
+        module procedure dmat3x4_to_mat3x3
+        module procedure dmat4x2_to_mat3x3
+        module procedure dmat4x3_to_mat3x3
+        module procedure dmat4x4_to_mat3x3
+    end interface to_mat3
+
+    public :: to_mat3x4
+    interface to_mat3x4
+        module procedure mat2x2_to_mat3x4
+        module procedure mat2x3_to_mat3x4
+        module procedure mat2x4_to_mat3x4
+        module procedure mat3x2_to_mat3x4
+        module procedure mat3x3_to_mat3x4
+        module procedure mat4x2_to_mat3x4
+        module procedure mat4x3_to_mat3x4
+        module procedure mat4x4_to_mat3x4
+        module procedure dmat2x2_to_mat3x4
+        module procedure dmat2x3_to_mat3x4
+        module procedure dmat2x4_to_mat3x4
+        module procedure dmat3x2_to_mat3x4
+        module procedure dmat3x3_to_mat3x4
+        module procedure dmat4x2_to_mat3x4
+        module procedure dmat4x3_to_mat3x4
+        module procedure dmat4x4_to_mat3x4
+    end interface to_mat3x4
+
+    public :: to_mat4x2
+    interface to_mat4x2
+        module procedure mat2x2_to_mat4x2
+        module procedure mat2x3_to_mat4x2
+        module procedure mat2x4_to_mat4x2
+        module procedure mat3x2_to_mat4x2
+        module procedure mat3x3_to_mat4x2
+        module procedure mat3x4_to_mat4x2
+        module procedure mat4x3_to_mat4x2
+        module procedure mat4x4_to_mat4x2
+        module procedure dmat2x2_to_mat4x2
+        module procedure dmat2x3_to_mat4x2
+        module procedure dmat2x4_to_mat4x2
+        module procedure dmat3x2_to_mat4x2
+        module procedure dmat3x3_to_mat4x2
+        module procedure dmat3x4_to_mat4x2
+        module procedure dmat4x3_to_mat4x2
+        module procedure dmat4x4_to_mat4x2
+    end interface to_mat4x2
+
+    public :: to_mat4x3
+    interface to_mat4x3
+        module procedure mat2x2_to_mat4x3
+        module procedure mat2x3_to_mat4x3
+        module procedure mat2x4_to_mat4x3
+        module procedure mat3x2_to_mat4x3
+        module procedure mat3x3_to_mat4x3
+        module procedure mat3x4_to_mat4x3
+        module procedure mat4x2_to_mat4x3
+        module procedure mat4x4_to_mat4x3
+        module procedure dmat2x2_to_mat4x3
+        module procedure dmat2x3_to_mat4x3
+        module procedure dmat2x4_to_mat4x3
+        module procedure dmat3x2_to_mat4x3
+        module procedure dmat3x3_to_mat4x3
+        module procedure dmat3x4_to_mat4x3
+        module procedure dmat4x2_to_mat4x3
+        module procedure dmat4x4_to_mat4x3
+    end interface to_mat4x3
+
+    public :: to_mat4
+    interface to_mat4
+        module procedure mat2x2_to_mat4x4
+        module procedure mat2x3_to_mat4x4
+        module procedure mat2x4_to_mat4x4
+        module procedure mat3x2_to_mat4x4
+        module procedure mat3x3_to_mat4x4
+        module procedure mat3x4_to_mat4x4
+        module procedure mat4x2_to_mat4x4
+        module procedure mat4x3_to_mat4x4
+        module procedure dmat2x2_to_mat4x4
+        module procedure dmat2x3_to_mat4x4
+        module procedure dmat2x4_to_mat4x4
+        module procedure dmat3x2_to_mat4x4
+        module procedure dmat3x3_to_mat4x4
+        module procedure dmat3x4_to_mat4x4
+        module procedure dmat4x2_to_mat4x4
+        module procedure dmat4x3_to_mat4x4
+    end interface to_mat4
+
     ! -------------
     ! --- Operators
     ! -------------
@@ -411,6 +595,39 @@ module glmff_mat
         module procedure ne_dmat4x4
     end interface operator(/=)
 
+    ! -------------
+    ! --- Transform
+    ! -------------
+
+    public :: translate
+    interface translate
+        module procedure translate_mat
+        module procedure translate_dmat
+    end interface translate
+
+    public :: rotate
+    interface rotate
+        module procedure rotate_mat
+        module procedure rotate_dmat
+    end interface rotate
+
+    public :: scale
+    interface scale
+        module procedure scale_mat
+        module procedure scale_dmat
+    end interface scale
+
+    public :: shear
+    interface shear
+        module procedure shear_mat
+        module procedure shear_dmat
+    end interface shear
+
+
+    ! -------------
+    ! --- Utilities
+    ! -------------
+
     public :: abs
     interface abs
         module procedure abs_mat2x2
@@ -597,6 +814,10 @@ module glmff_mat
         module procedure inverse_dmat4x4
     end interface inverse
 
+    ! -----------
+    ! --- Cameras
+    ! -----------
+
     public :: ortho
     interface ortho
         module procedure ortho_mat
@@ -604,6 +825,30 @@ module glmff_mat
         module procedure ortho_full_mat
         module procedure ortho_full_dmat
     end interface ortho
+
+    public :: orthoZO
+    interface orthoZO
+        module procedure orthoZO_mat
+        module procedure orthoZO_dmat
+    end interface orthoZO
+
+    public :: orthoNO
+    interface orthoNO
+        module procedure orthoNO_mat
+        module procedure orthoNO_dmat
+    end interface orthoNO
+
+    public :: orthoLH
+    interface orthoLH
+        module procedure orthoLH_mat
+        module procedure orthoLH_dmat
+    end interface orthoLH
+
+    public :: orthoRH
+    interface orthoRH
+        module procedure orthoRH_mat
+        module procedure orthoRH_dmat
+    end interface orthoRH
 
     public :: orthoLH_ZO
     interface orthoLH_ZO
@@ -631,9 +876,33 @@ module glmff_mat
 
     public :: frustum
     interface frustum
-        module procedure frustum_full_mat
-        module procedure frustum_full_dmat
+        module procedure frustum_mat
+        module procedure frustum_dmat
     end interface frustum
+
+    public :: frustumZO
+    interface frustumZO
+        module procedure frustumZO_mat
+        module procedure frustumZO_dmat
+    end interface frustumZO
+
+    public :: frustumNO
+    interface frustumNO
+        module procedure frustumNO_mat
+        module procedure frustumNO_dmat
+    end interface frustumNO
+
+    public :: frustumLH
+    interface frustumLH
+        module procedure frustumLH_mat
+        module procedure frustumLH_dmat
+    end interface frustumLH
+
+    public :: frustumRH
+    interface frustumRH
+        module procedure frustumRH_mat
+        module procedure frustumRH_dmat
+    end interface frustumRH
 
     public :: frustumLH_ZO
     interface frustumLH_ZO
@@ -661,11 +930,43 @@ module glmff_mat
 
     public :: perspective
     interface perspective
-        module procedure perspective_full_mat
-        module procedure perspective_full_dmat
-        module procedure perspectiveFov_full_mat
-        module procedure perspectiveFov_full_dmat
+        module procedure perspective_mat
+        module procedure perspective_dmat
+        module procedure perspectiveFov_mat
+        module procedure perspectiveFov_dmat
     end interface perspective
+
+    public :: perspectiveZO
+    interface perspectiveZO
+        module procedure perspectiveZO_mat
+        module procedure perspectiveZO_dmat
+        module procedure perspectiveFovZO_mat
+        module procedure perspectiveFovZO_dmat
+    end interface perspectiveZO
+
+    public :: perspectiveNO
+    interface perspectiveNO
+        module procedure perspectiveNO_mat
+        module procedure perspectiveNO_dmat
+        module procedure perspectiveFovNO_mat
+        module procedure perspectiveFovNO_dmat
+    end interface perspectiveNO
+
+    public :: perspectiveLH
+    interface perspectiveLH
+        module procedure perspectiveLH_mat
+        module procedure perspectiveLH_dmat
+        module procedure perspectiveFovLH_mat
+        module procedure perspectiveFovLH_dmat
+    end interface perspectiveLH
+
+    public :: perspectiveRH
+    interface perspectiveRH
+        module procedure perspectiveRH_mat
+        module procedure perspectiveRH_dmat
+        module procedure perspectiveFovRH_mat
+        module procedure perspectiveFovRH_dmat
+    end interface perspectiveRH
 
     public :: perspectiveLH_ZO
     interface perspectiveLH_ZO
@@ -701,9 +1002,21 @@ module glmff_mat
 
     public :: infinitePerspective
     interface infinitePerspective
-        module procedure infinitePerspective_full_mat
-        module procedure infinitePerspective_full_dmat
+        module procedure infinitePerspective_mat
+        module procedure infinitePerspective_dmat
     end interface infinitePerspective
+
+    public :: infinitePerspectiveLH
+    interface infinitePerspectiveLH
+        module procedure infinitePerspectiveLH_mat
+        module procedure infinitePerspectiveLH_dmat
+    end interface infinitePerspectiveLH
+
+    public :: infinitePerspectiveRH
+    interface infinitePerspectiveRH
+        module procedure infinitePerspectiveRH_mat
+        module procedure infinitePerspectiveRH_dmat
+    end interface infinitePerspectiveRH
 
     public :: infinitePerspectiveLH_ZO
     interface infinitePerspectiveLH_ZO
@@ -772,30 +1085,6 @@ module glmff_mat
         module procedure unproject_mat
         module procedure unproject_dmat
     end interface unproject
-
-    public :: translate
-    interface translate
-        module procedure translate_mat
-        module procedure translate_dmat
-    end interface translate
-
-    public :: rotate
-    interface rotate
-        module procedure rotate_mat
-        module procedure rotate_dmat
-    end interface rotate
-
-    public :: scale
-    interface scale
-        module procedure scale_mat
-        module procedure scale_dmat
-    end interface scale
-
-    public :: shear
-    interface shear
-        module procedure shear_mat
-        module procedure shear_dmat
-    end interface shear
 
     public :: lookAtRH
     interface lookAtRH

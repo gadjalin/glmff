@@ -47,6 +47,22 @@ module glmff_quat
         module procedure dquat_euler
     end interface dquat
 
+    ! --------------
+    ! --- Conversion
+    ! --------------
+
+    public :: to_mat3
+    interface to_mat3
+        module procedure quat_to_mat3
+        module procedure dquat_to_mat3
+    end interface to_mat3
+
+    public :: to_mat4
+    interface to_mat4
+        module procedure quat_to_mat4
+        module procedure dquat_to_mat4
+    end interface to_mat4
+
     ! -------------
     ! --- Operators
     ! -------------
@@ -126,6 +142,10 @@ module glmff_quat
         module procedure cross_quat
         module procedure cross_dquat
     end interface cross
+
+    ! -------------
+    ! --- Utilities
+    ! -------------
 
     public :: rotate
     interface rotate

@@ -26,6 +26,7 @@ IF(CMAKE_Fortran_COMPILER_ID STREQUAL "GNU")
     # Debug
     ADD_COMPILE_OPTIONS("$<$<AND:$<COMPILE_LANGUAGE:Fortran>,$<CONFIG:Debug>>:-fbacktrace>")
     ADD_COMPILE_OPTIONS("$<$<COMPILE_LANGUAGE:Fortran>:-Wall;-Wextra;-Wimplicit-interface;-Wimplicit-procedure>")
+    #ADD_COMPILE_OPTIONS("-save-temps")
     # Optimisation
     ADD_COMPILE_OPTIONS("$<$<AND:$<COMPILE_LANGUAGE:Fortran>,$<CONFIG:Debug>>:-fcheck=all;-Og;-g>")
     ADD_COMPILE_OPTIONS("$<$<AND:$<COMPILE_LANGUAGE:Fortran>,$<CONFIG:Release>>:-O3>")

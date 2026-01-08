@@ -75,6 +75,54 @@ pure function CAT(orthoRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, 
     res%data(3,4) = - (far + near) / (far - near)
 end function
 
+pure function CAT(orthoZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
+    res = CAT(orthoLH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#else
+    res = CAT(orthoRH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#endif
+end function
+
+pure function CAT(orthoNO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
+    res = CAT(orthoLH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#else
+    res = CAT(orthoRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#endif
+end function
+
+pure function CAT(orthoLH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
+    res = CAT(orthoLH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#else
+    res = CAT(orthoLH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#endif
+end function
+
+pure function CAT(orthoRH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
+    res = CAT(orthoRH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#else
+    res = CAT(orthoRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#endif
+end function
+
 pure function CAT(ortho_full_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
@@ -167,7 +215,55 @@ pure function CAT(frustumRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near
     res%data(3,4) = -(two * far * near) / (far - near)
 end function
 
-pure function CAT(frustum_full_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+pure function CAT(frustumZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
+    res = CAT(frustumLH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#else
+    res = CAT(frustumRH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#endif
+end function
+
+pure function CAT(frustumNO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
+    res = CAT(frustumLH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#else
+    res = CAT(frustumRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#endif
+end function
+
+pure function CAT(frustumLH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
+    res = CAT(frustumLH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#else
+    res = CAT(frustumLH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#endif
+end function
+
+pure function CAT(frustumRH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
+    res = CAT(frustumRH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#else
+    res = CAT(frustumRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far)
+#endif
+end function
+
+pure function CAT(frustum_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -265,7 +361,55 @@ pure function CAT(perspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) r
     res%data(3,4) = - (two * far * near) / (far - near)
 end function
 
-pure function CAT(perspective_full_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+pure function CAT(perspectiveZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
+    res = CAT(perspectiveLH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far)
+#else
+    res = CAT(perspectiveRH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far)
+#endif
+end function
+
+pure function CAT(perspectiveNO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
+    res = CAT(perspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far)
+#else
+    res = CAT(perspectiveRH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far)
+#endif
+end function
+
+pure function CAT(perspectiveLH_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
+    res = CAT(perspectiveLH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far)
+#else
+    res = CAT(perspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far)
+#endif
+end function
+
+pure function CAT(perspectiveRH_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
+    res = CAT(perspectiveRH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far)
+#else
+    res = CAT(perspectiveRH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far)
+#endif
+end function
+
+pure function CAT(perspective_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -367,7 +511,55 @@ pure function CAT(perspectiveFovLH_NO_,MATRIX_TYPE_NAME)(fov, width, height, nea
     res%data(3,4) = - (two * far * near) / (far - near)
 end function
 
-pure function CAT(perspectiveFov_full_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+pure function CAT(perspectiveFovZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
+    res = CAT(perspectiveFovLH_ZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far)
+#else
+    res = CAT(perspectiveFovRH_ZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far)
+#endif
+end function
+
+pure function CAT(perspectiveFovNO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
+    res = CAT(perspectiveFovLH_NO_,MATRIX_TYPE_NAME)(fov, width, height, near, far)
+#else
+    res = CAT(perspectiveFovRH_NO_,MATRIX_TYPE_NAME)(fov, width, height, near, far)
+#endif
+end function
+
+pure function CAT(perspectiveFovLH_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
+    res = CAT(perspectiveFovLH_ZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far)
+#else
+    res = CAT(perspectiveFovLH_NO_,MATRIX_TYPE_NAME)(fov, width, height, near, far)
+#endif
+end function
+
+pure function CAT(perspectiveFovRH_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
+    res = CAT(perspectiveFovRH_ZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far)
+#else
+    res = CAT(perspectiveFovRH_NO_,MATRIX_TYPE_NAME)(fov, width, height, near, far)
+#endif
+end function
+
+pure function CAT(perspectiveFov_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -483,7 +675,31 @@ pure function CAT(infinitePerspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near
     res%data(3,4) = - two * near
 end function
 
-pure function CAT(infinitePerspective_full_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+pure function CAT(infinitePerspectiveLH_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
+    res = CAT(infinitePerspectiveLH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near)
+#else
+    res = CAT(infinitePerspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near)
+#endif
+end function
+
+pure function CAT(infinitePerspectiveRH_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+    implicit none
+    real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
+    type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
+
+#if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
+    res = CAT(infinitePerspectiveRH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near)
+#else
+    res = CAT(infinitePerspectiveRH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near)
+#endif
+end function
+
+pure function CAT(infinitePerspective_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res

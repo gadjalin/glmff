@@ -27,9 +27,18 @@ module glmff
 
     public :: quat, dquat
 
-    ! -------------
-    ! --- Operators
-    ! -------------
+    ! --------------
+    ! --- Conversion
+    ! --------------
+
+    public :: to_vec2, to_vec3, to_vec4
+    public :: to_mat2, to_mat2x3, to_mat2x4
+    public :: to_mat3, to_mat3x2, to_mat3x4
+    public :: to_mat4, to_mat4x2, to_mat4x3
+
+    ! -------------------------
+    ! --- Operators & Functions
+    ! -------------------------
 
     public :: operator(+), operator(-), operator(*), operator(/)
     public :: operator(.dot.), operator(.cross.)

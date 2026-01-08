@@ -14,6 +14,46 @@ module glmff_vec
     public :: bvec3, ivec3, vec3, dvec3
     public :: bvec4, ivec4, vec4, dvec4
 
+    ! --------------
+    ! --- Conversion
+    ! --------------
+
+    public :: to_vec2
+    interface to_vec2
+        module procedure bvec3_to_vec2
+        module procedure bvec4_to_vec2
+        module procedure ivec3_to_vec2
+        module procedure ivec4_to_vec2
+        module procedure vec3_to_vec2
+        module procedure vec4_to_vec2
+        module procedure dvec3_to_vec2
+        module procedure dvec4_to_vec2
+    end interface to_vec2
+
+    public :: to_vec3
+    interface to_vec3
+        module procedure bvec2_to_vec3
+        module procedure bvec4_to_vec3
+        module procedure ivec2_to_vec3
+        module procedure ivec4_to_vec3
+        module procedure vec2_to_vec3
+        module procedure vec4_to_vec3
+        module procedure dvec2_to_vec3
+        module procedure dvec4_to_vec3
+    end interface to_vec3
+
+    public :: to_vec4
+    interface to_vec4
+        module procedure bvec2_to_vec4
+        module procedure bvec3_to_vec4
+        module procedure ivec2_to_vec4
+        module procedure ivec3_to_vec4
+        module procedure vec2_to_vec4
+        module procedure vec3_to_vec4
+        module procedure dvec2_to_vec4
+        module procedure dvec3_to_vec4
+    end interface to_vec4
+
     ! -------------
     ! --- Operators
     ! -------------
@@ -204,6 +244,81 @@ module glmff_vec
         module procedure cross_dvec3
     end interface cross
 
+    public :: operator(==)
+    interface operator(==)
+        module procedure eq_bvec2
+        module procedure eq_ivec2
+        module procedure eq_vec2
+        module procedure eq_dvec2
+
+        module procedure eq_bvec3
+        module procedure eq_ivec3
+        module procedure eq_vec3
+        module procedure eq_dvec3
+
+        module procedure eq_bvec4
+        module procedure eq_ivec4
+        module procedure eq_vec4
+        module procedure eq_dvec4
+    end interface operator(==)
+
+    public :: operator(/=)
+    interface operator(/=)
+        module procedure ne_bvec2
+        module procedure ne_ivec2
+        module procedure ne_vec2
+        module procedure ne_dvec2
+
+        module procedure ne_bvec3
+        module procedure ne_ivec3
+        module procedure ne_vec3
+        module procedure ne_dvec3
+
+        module procedure ne_bvec4
+        module procedure ne_ivec4
+        module procedure ne_vec4
+        module procedure ne_dvec4
+    end interface operator(/=)
+
+    public :: operator(.and.)
+    interface operator(.and.)
+        module procedure and_bvec2
+        module procedure and_bvec3
+        module procedure and_bvec4
+    end interface operator(.and.)
+
+    public :: operator(.or.)
+    interface operator(.or.)
+        module procedure or_bvec2
+        module procedure or_bvec3
+        module procedure or_bvec4
+    end interface operator(.or.)
+
+    public :: any
+    interface any
+        module procedure any_bvec2
+        module procedure any_bvec3
+        module procedure any_bvec4
+    end interface any
+
+    public :: all
+    interface all
+        module procedure all_bvec2
+        module procedure all_bvec3
+        module procedure all_bvec4
+    end interface all
+
+    public :: operator(.not.)
+    interface operator(.not.)
+        module procedure not_bvec2
+        module procedure not_bvec3
+        module procedure not_bvec4
+    end interface operator(.not.)
+
+    ! -------------
+    ! --- Utilities
+    ! -------------
+
     public :: length
     interface length
         module procedure length_vec2
@@ -275,42 +390,6 @@ module glmff_vec
         module procedure refract_vec4
         module procedure refract_dvec4
     end interface refract
-
-    public :: operator(==)
-    interface operator(==)
-        module procedure eq_bvec2
-        module procedure eq_ivec2
-        module procedure eq_vec2
-        module procedure eq_dvec2
-
-        module procedure eq_bvec3
-        module procedure eq_ivec3
-        module procedure eq_vec3
-        module procedure eq_dvec3
-
-        module procedure eq_bvec4
-        module procedure eq_ivec4
-        module procedure eq_vec4
-        module procedure eq_dvec4
-    end interface operator(==)
-
-    public :: operator(/=)
-    interface operator(/=)
-        module procedure ne_bvec2
-        module procedure ne_ivec2
-        module procedure ne_vec2
-        module procedure ne_dvec2
-
-        module procedure ne_bvec3
-        module procedure ne_ivec3
-        module procedure ne_vec3
-        module procedure ne_dvec3
-
-        module procedure ne_bvec4
-        module procedure ne_ivec4
-        module procedure ne_vec4
-        module procedure ne_dvec4
-    end interface operator(/=)
 
     public :: lessThan
     interface lessThan
@@ -401,41 +480,6 @@ module glmff_vec
         module procedure notEqual_vec4
         module procedure notEqual_dvec4
     end interface notEqual
-
-    public :: operator(.and.)
-    interface operator(.and.)
-        module procedure and_bvec2
-        module procedure and_bvec3
-        module procedure and_bvec4
-    end interface operator(.and.)
-
-    public :: operator(.or.)
-    interface operator(.or.)
-        module procedure or_bvec2
-        module procedure or_bvec3
-        module procedure or_bvec4
-    end interface operator(.or.)
-
-    public :: any
-    interface any
-        module procedure any_bvec2
-        module procedure any_bvec3
-        module procedure any_bvec4
-    end interface any
-
-    public :: all
-    interface all
-        module procedure all_bvec2
-        module procedure all_bvec3
-        module procedure all_bvec4
-    end interface all
-
-    public :: operator(.not.)
-    interface operator(.not.)
-        module procedure not_bvec2
-        module procedure not_bvec3
-        module procedure not_bvec4
-    end interface operator(.not.)
 
     public :: abs
     interface abs
@@ -745,6 +789,10 @@ module glmff_vec
         module procedure isnan_vec4
         module procedure isnan_dvec4
     end interface isnan
+
+    ! ----------------
+    ! --- Trigonometry
+    ! ----------------
 
     public :: radians
     interface radians

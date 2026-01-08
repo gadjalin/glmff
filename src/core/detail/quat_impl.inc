@@ -8,6 +8,7 @@
 #define VECTOR_TYPE_NAME vec
 #define MATRIX_TYPE_NAME mat
 #define QUAT_TYPE_FULL quat
+#include "quat_conversion.inc"
 #include "quat_arithmetic.inc"
 #include "quat_comparison.inc"
 #include "quat_common.inc"
@@ -25,6 +26,7 @@
 #define VECTOR_TYPE_NAME dvec
 #define MATRIX_TYPE_NAME dmat
 #define QUAT_TYPE_FULL dquat
+#include "quat_conversion.inc"
 #include "quat_arithmetic.inc"
 #include "quat_comparison.inc"
 #include "quat_common.inc"

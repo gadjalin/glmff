@@ -14,6 +14,7 @@
 #define COL_TYPE_FULL CAT(VECTOR_TYPE_NAME,MATRIX_TYPE_NROW)
 #define ROW_TYPE_FULL CAT(VECTOR_TYPE_NAME,MATRIX_TYPE_NCOL)
 #define MATRIX_TYPE_FULL CAT4(MATRIX_TYPE_NAME,MATRIX_TYPE_NCOL,x,MATRIX_TYPE_NROW)
+#include "mat_conversion.inc"
 #include "mat_arithmetic.inc"
 #include "mat_comparison.inc"
 #include "mat_common.inc"
@@ -35,6 +36,7 @@
 #define COL_TYPE_FULL CAT(VECTOR_TYPE_NAME,MATRIX_TYPE_NROW)
 #define ROW_TYPE_FULL CAT(VECTOR_TYPE_NAME,MATRIX_TYPE_NCOL)
 #define MATRIX_TYPE_FULL CAT4(MATRIX_TYPE_NAME,MATRIX_TYPE_NCOL,x,MATRIX_TYPE_NROW)
+#include "mat_conversion.inc"
 #include "mat_arithmetic.inc"
 #include "mat_comparison.inc"
 #include "mat_common.inc"
