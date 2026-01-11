@@ -81,9 +81,9 @@ You may use CMake with tools such as Visual Studio or MinGW.
 
 You can instead add glmff as a dependency in your CMake script
 ```cmake
-ADD_SUBDIRECTORY(path_to_glf90w)
+ADD_SUBDIRECTORY(path_to_glmff)
 ...
-TARGET_LINK_LIBRARIES(... glf90w ...)
+TARGET_LINK_LIBRARIES(... glmff ...)
 ```
 
 ## Distribution
