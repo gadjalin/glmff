@@ -97,7 +97,7 @@ cmake --build bin
 
 ## Fortran Multimedia Framework
 
-GLFW bindings: [glf90w](https://github.com/gadjalin/glf90w)
-OpenGL bindings: [glad-fortran](https://github.com/gadjalin/glad-fortran)
-OpenGL Mathematics: [glmff](https://github.com/gadjalin/glmff)
+ - GLFW bindings: [glf90w](https://github.com/gadjalin/glf90w)
+ - OpenGL bindings: [glad-fortran](https://github.com/gadjalin/glad-fortran)
+ - OpenGL Mathematics: [glmff](https://github.com/gadjalin/glmff)
 
