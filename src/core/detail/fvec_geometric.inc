@@ -1,4 +1,4 @@
-pure function CAT(length_,VECTOR_TYPE_FULL)(x) result(length)
+elemental function CAT(length_,VECTOR_TYPE_FULL)(x) result(length)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     real(kind=CAT(real,SCALAR_TYPE_BIT_SIZE)):: length
@@ -6,7 +6,7 @@ pure function CAT(length_,VECTOR_TYPE_FULL)(x) result(length)
     length = sqrt(dot_product(x%data, x%data))
 end function
 
-pure function CAT(distance_,VECTOR_TYPE_FULL)(v0, v1) result(distance)
+elemental function CAT(distance_,VECTOR_TYPE_FULL)(v0, v1) result(distance)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: v0, v1
     real(kind=CAT(real,SCALAR_TYPE_BIT_SIZE)) :: distance
@@ -14,7 +14,7 @@ pure function CAT(distance_,VECTOR_TYPE_FULL)(v0, v1) result(distance)
     distance = length(v1 - v0)
 end function
 
-pure function CAT(dot_,VECTOR_TYPE_FULL)(x, y) result(res)
+elemental function CAT(dot_,VECTOR_TYPE_FULL)(x, y) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, y
     SCALAR_TYPE_FULL :: res
@@ -23,7 +23,7 @@ pure function CAT(dot_,VECTOR_TYPE_FULL)(x, y) result(res)
 end function
 
 #if VECTOR_TYPE_SIZE == 3
-pure function CAT(cross_,VECTOR_TYPE_FULL)(x, y) result(res)
+elemental function CAT(cross_,VECTOR_TYPE_FULL)(x, y) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, y
     type(VECTOR_TYPE_FULL) :: res
@@ -35,15 +35,15 @@ pure function CAT(cross_,VECTOR_TYPE_FULL)(x, y) result(res)
 end function
 #endif
 
-pure function CAT(normalize_,VECTOR_TYPE_FULL)(v) result(res)
+elemental function CAT(normalize_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
-    type(VECTOR_TYPE_FULL), intent(in) :: v
+    type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
 
-    res%data = v%data / length(v)
+    res%data = x%data / length(x)
 end function
 
-pure function CAT(faceforward_,VECTOR_TYPE_FULL)(N, I, Nref) result(res)
+elemental function CAT(faceforward_,VECTOR_TYPE_FULL)(N, I, Nref) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: N, I, Nref
     type(VECTOR_TYPE_FULL) :: res
@@ -53,7 +53,7 @@ pure function CAT(faceforward_,VECTOR_TYPE_FULL)(N, I, Nref) result(res)
     res = merge(N, -N, dot_product(Nref%data, I%data) < zero)
 end function
 
-pure function CAT(reflect_,VECTOR_TYPE_FULL)(I, N) result(res)
+elemental function CAT(reflect_,VECTOR_TYPE_FULL)(I, N) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: I, N
     type(VECTOR_TYPE_FULL) :: res
@@ -63,7 +63,7 @@ pure function CAT(reflect_,VECTOR_TYPE_FULL)(I, N) result(res)
     res = I - N * dot_product(N%data, I%data) * two
 end function
 
-pure function CAT(refract_,VECTOR_TYPE_FULL)(I, N, eta) result(res)
+elemental function CAT(refract_,VECTOR_TYPE_FULL)(I, N, eta) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: I, N
     SCALAR_TYPE_FULL, intent(in) :: eta

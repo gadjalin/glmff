@@ -20,10 +20,12 @@ TARGET_SOURCES(glmff PRIVATE
     glmff.F90
 
     core/glmff_scalar.F90
+
     core/glmff_vec2.F90
     core/glmff_vec3.F90
     core/glmff_vec4.F90
     core/glmff_vec.F90
+
     core/glmff_mat2x2.F90
     core/glmff_mat2x3.F90
     core/glmff_mat2x4.F90
@@ -34,6 +36,7 @@ TARGET_SOURCES(glmff PRIVATE
     core/glmff_mat4x3.F90
     core/glmff_mat4x4.F90
     core/glmff_mat.F90
+
     core/glmff_quat.F90
 )
 

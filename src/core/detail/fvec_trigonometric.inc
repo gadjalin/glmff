@@ -1,4 +1,4 @@
-pure function CAT(radians_,VECTOR_TYPE_FULL)(deg) result(rad)
+elemental function CAT(radians_,VECTOR_TYPE_FULL)(deg) result(rad)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: deg
     type(VECTOR_TYPE_FULL) :: rad
@@ -8,7 +8,7 @@ pure function CAT(radians_,VECTOR_TYPE_FULL)(deg) result(rad)
     rad%data = deg%data * pi_over_180
 end function
 
-pure function CAT(degrees_,VECTOR_TYPE_FULL)(rad) result(deg)
+elemental function CAT(degrees_,VECTOR_TYPE_FULL)(rad) result(deg)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: rad
     type(VECTOR_TYPE_FULL) :: deg
@@ -18,7 +18,7 @@ pure function CAT(degrees_,VECTOR_TYPE_FULL)(rad) result(deg)
     deg%data = rad%data * ipi_over_180
 end function
 
-pure function CAT(sin_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(sin_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -26,7 +26,7 @@ pure function CAT(sin_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = sin(x%data)
 end function
 
-pure function CAT(cos_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(cos_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -34,7 +34,7 @@ pure function CAT(cos_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = cos(x%data)
 end function
 
-pure function CAT(tan_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(tan_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -42,7 +42,7 @@ pure function CAT(tan_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = tan(x%data)
 end function
 
-pure function CAT(asin_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(asin_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -50,7 +50,7 @@ pure function CAT(asin_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = asin(x%data)
 end function
 
-pure function CAT(acos_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(acos_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -58,7 +58,7 @@ pure function CAT(acos_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = acos(x%data)
 end function
 
-pure function CAT(atan_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(atan_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -66,7 +66,7 @@ pure function CAT(atan_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = atan(x%data)
 end function
 
-pure function CAT(atan2_,VECTOR_TYPE_FULL)(x, y) result(res)
+elemental function CAT(atan2_,VECTOR_TYPE_FULL)(x, y) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, y
     type(VECTOR_TYPE_FULL) :: res
@@ -74,7 +74,7 @@ pure function CAT(atan2_,VECTOR_TYPE_FULL)(x, y) result(res)
     res%data = atan2(x%data, y%data)
 end function
 
-pure function CAT(sinh_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(sinh_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -82,7 +82,7 @@ pure function CAT(sinh_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = sinh(x%data)
 end function
 
-pure function CAT(cosh_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(cosh_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -90,7 +90,7 @@ pure function CAT(cosh_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = cosh(x%data)
 end function
 
-pure function CAT(tanh_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(tanh_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -98,7 +98,7 @@ pure function CAT(tanh_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = tanh(x%data)
 end function
 
-pure function CAT(asinh_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(asinh_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -106,7 +106,7 @@ pure function CAT(asinh_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = asinh(x%data)
 end function
 
-pure function CAT(acosh_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(acosh_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -114,7 +114,7 @@ pure function CAT(acosh_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = acosh(x%data)
 end function
 
-pure function CAT(atanh_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(atanh_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res

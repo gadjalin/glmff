@@ -1,4 +1,4 @@
-pure function CAT(min_,VECTOR_TYPE_FULL)(x, y) result(res)
+elemental function CAT(min_,VECTOR_TYPE_FULL)(x, y) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, y
     type(VECTOR_TYPE_FULL) :: res
@@ -6,7 +6,7 @@ pure function CAT(min_,VECTOR_TYPE_FULL)(x, y) result(res)
     res%data = min(x%data, y%data)
 end function
 
-pure function CAT3(min_,VECTOR_TYPE_FULL,_scalar)(x, y) result(res)
+elemental function CAT3(min_,VECTOR_TYPE_FULL,_scalar)(x, y) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     SCALAR_TYPE_FULL, intent(in) :: y
@@ -15,7 +15,7 @@ pure function CAT3(min_,VECTOR_TYPE_FULL,_scalar)(x, y) result(res)
     res%data = min(x%data, y)
 end function
 
-pure function CAT(max_,VECTOR_TYPE_FULL)(x, y) result(res)
+elemental function CAT(max_,VECTOR_TYPE_FULL)(x, y) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, y
     type(VECTOR_TYPE_FULL) :: res
@@ -23,7 +23,7 @@ pure function CAT(max_,VECTOR_TYPE_FULL)(x, y) result(res)
     res%data = max(x%data, y%data)
 end function
 
-pure function CAT3(max_,VECTOR_TYPE_FULL,_scalar)(x, y) result(res)
+elemental function CAT3(max_,VECTOR_TYPE_FULL,_scalar)(x, y) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     SCALAR_TYPE_FULL, intent(in) :: y
@@ -32,7 +32,7 @@ pure function CAT3(max_,VECTOR_TYPE_FULL,_scalar)(x, y) result(res)
     res%data = max(x%data, y)
 end function
 
-pure function CAT(abs_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(abs_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -40,7 +40,7 @@ pure function CAT(abs_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = abs(x%data)
 end function
 
-pure function CAT(sign_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(sign_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -50,7 +50,7 @@ pure function CAT(sign_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = sign(one, x%data)
 end function
 
-pure function CAT(mod_,VECTOR_TYPE_FULL)(x, y) result(res)
+elemental function CAT(mod_,VECTOR_TYPE_FULL)(x, y) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, y
     type(VECTOR_TYPE_FULL) :: res
@@ -58,7 +58,7 @@ pure function CAT(mod_,VECTOR_TYPE_FULL)(x, y) result(res)
     res%data = modulo(x%data, y%data)
 end function
 
-pure function CAT(clamp_,VECTOR_TYPE_FULL)(x, min_val, max_val) result(res)
+elemental function CAT(clamp_,VECTOR_TYPE_FULL)(x, min_val, max_val) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, min_val, max_val
     type(VECTOR_TYPE_FULL) :: res
@@ -66,7 +66,7 @@ pure function CAT(clamp_,VECTOR_TYPE_FULL)(x, min_val, max_val) result(res)
     res%data = min(max(x%data, min_val%data), max_val%data)
 end function
 
-pure function CAT3(clamp_,VECTOR_TYPE_FULL,_scalar_high)(x, min_val, max_val) result(res)
+elemental function CAT3(clamp_,VECTOR_TYPE_FULL,_scalar_max)(x, min_val, max_val) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, min_val
     SCALAR_TYPE_FULL, intent(in) :: max_val
@@ -75,7 +75,7 @@ pure function CAT3(clamp_,VECTOR_TYPE_FULL,_scalar_high)(x, min_val, max_val) re
     res%data = min(max(x%data, min_val%data), max_val)
 end function
 
-pure function CAT3(clamp_,VECTOR_TYPE_FULL,_scalar_low)(x, min_val, max_val) result(res)
+elemental function CAT3(clamp_,VECTOR_TYPE_FULL,_scalar_min)(x, min_val, max_val) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, max_val
     SCALAR_TYPE_FULL, intent(in) :: min_val
@@ -84,7 +84,7 @@ pure function CAT3(clamp_,VECTOR_TYPE_FULL,_scalar_low)(x, min_val, max_val) res
     res%data = min(max(x%data, min_val), max_val%data)
 end function
 
-pure function CAT3(clamp_,VECTOR_TYPE_FULL,_scalar)(x, min_val, max_val) result(res)
+elemental function CAT3(clamp_,VECTOR_TYPE_FULL,_scalar)(x, min_val, max_val) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     SCALAR_TYPE_FULL, intent(in) :: min_val, max_val
@@ -93,7 +93,7 @@ pure function CAT3(clamp_,VECTOR_TYPE_FULL,_scalar)(x, min_val, max_val) result(
     res%data = min(max(x%data, min_val), max_val)
 end function
 
-pure function CAT3(mix_,VECTOR_TYPE_FULL,_bool)(x, y, a) result(res)
+elemental function CAT3(mix_,VECTOR_TYPE_FULL,_bool)(x, y, a) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, y
     logical, intent(in) :: a
@@ -102,7 +102,7 @@ pure function CAT3(mix_,VECTOR_TYPE_FULL,_bool)(x, y, a) result(res)
     res%data = merge(y%data, x%data, a)
 end function
 
-pure function CAT3(mix_,VECTOR_TYPE_FULL,_bvec)(x, y, a) result(res)
+elemental function CAT3(mix_,VECTOR_TYPE_FULL,_bvec)(x, y, a) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, y
     type(CAT(bvec,VECTOR_TYPE_SIZE)), intent(in) :: a

@@ -1,14 +1,14 @@
-pure logical function CAT(eq_,VECTOR_TYPE_FULL)(lhs, rhs)
+elemental logical function CAT(eq_,VECTOR_TYPE_FULL)(a, b) result(res)
     implicit none
-    type(VECTOR_TYPE_FULL), intent(in) :: lhs, rhs
+    type(VECTOR_TYPE_FULL), intent(in) :: a, b
 
-    CAT(eq_,VECTOR_TYPE_FULL) = all(lhs%data == rhs%data)
+    res = all(a%data == b%data)
 end function
 
-pure logical function CAT(ne_,VECTOR_TYPE_FULL)(lhs, rhs)
+elemental logical function CAT(ne_,VECTOR_TYPE_FULL)(a, b) result(res)
     implicit none
-    type(VECTOR_TYPE_FULL), intent(in) :: lhs, rhs
+    type(VECTOR_TYPE_FULL), intent(in) :: a, b
 
-    CAT(ne_,VECTOR_TYPE_FULL) = any(lhs%data /= rhs%data)
+    res = any(a%data /= b%data)
 end function
 

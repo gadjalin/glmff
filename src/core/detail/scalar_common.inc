@@ -1,4 +1,4 @@
-pure function CAT(sign_,SCALAR_TYPE_KIND)(x) result(res)
+elemental function CAT(sign_,SCALAR_TYPE_KIND)(x) result(res)
     implicit none
     SCALAR_TYPE_FULL, intent(in) :: x
     SCALAR_TYPE_FULL :: res
@@ -7,7 +7,7 @@ pure function CAT(sign_,SCALAR_TYPE_KIND)(x) result(res)
     res = sign(one, x)
 end function
 
-pure function CAT(clamp_,SCALAR_TYPE_KIND)(x, min_val, max_val) result(res)
+elemental function CAT(clamp_,SCALAR_TYPE_KIND)(x, min_val, max_val) result(res)
     implicit none
     SCALAR_TYPE_FULL, intent(in) :: x, min_val, max_val
     SCALAR_TYPE_FULL :: res
@@ -15,7 +15,7 @@ pure function CAT(clamp_,SCALAR_TYPE_KIND)(x, min_val, max_val) result(res)
     res = min(max(x, min_val), max_val)
 end function
 
-pure function CAT3(mix_,SCALAR_TYPE_KIND,_bool)(x, y, a) result(res)
+elemental function CAT3(mix_,SCALAR_TYPE_KIND,_bool)(x, y, a) result(res)
     implicit none
     SCALAR_TYPE_FULL, intent(in) :: x, y
     logical, intent(in) :: a
@@ -24,7 +24,7 @@ pure function CAT3(mix_,SCALAR_TYPE_KIND,_bool)(x, y, a) result(res)
     res = merge(y, x, a)
 end function
 
-pure function CAT(fma_,SCALAR_TYPE_KIND)(a, b, c) result(res)
+elemental function CAT(fma_,SCALAR_TYPE_KIND)(a, b, c) result(res)
     implicit none
     SCALAR_TYPE_FULL, intent(in) :: a, b, c
     SCALAR_TYPE_FULL :: res

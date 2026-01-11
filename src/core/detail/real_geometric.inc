@@ -1,12 +1,4 @@
-pure function CAT(length_,SCALAR_TYPE_KIND)(x) result(res)
-    implicit none
-    SCALAR_TYPE_FULL, intent(in) :: x
-    SCALAR_TYPE_FULL :: res
-
-    res = abs(x)
-end function
-
-pure function CAT(distance_,SCALAR_TYPE_KIND)(p0, p1) result(res)
+elemental function CAT(distance_,SCALAR_TYPE_KIND)(p0, p1) result(res)
     implicit none
     SCALAR_TYPE_FULL, intent(in) :: p0, p1
     SCALAR_TYPE_FULL :: res
@@ -14,15 +6,7 @@ pure function CAT(distance_,SCALAR_TYPE_KIND)(p0, p1) result(res)
     res = abs(p1 - p0)
 end function
 
-pure function CAT(dot_,SCALAR_TYPE_KIND)(x, y) result(res)
-    implicit none
-    SCALAR_TYPE_FULL, intent(in) :: x, y
-    SCALAR_TYPE_FULL :: res
-
-    res = x * y
-end function
-
-pure function CAT(faceforward_,SCALAR_TYPE_KIND)(N, I, Nref) result(res)
+elemental function CAT(faceforward_,SCALAR_TYPE_KIND)(N, I, Nref) result(res)
     implicit none
     SCALAR_TYPE_FULL, intent(in) :: N, I, Nref
     SCALAR_TYPE_FULL :: res
@@ -32,7 +16,7 @@ pure function CAT(faceforward_,SCALAR_TYPE_KIND)(N, I, Nref) result(res)
     res = merge(N, -N, (Nref * I) < zero)
 end function
 
-pure function CAT(reflect_,SCALAR_TYPE_KIND)(I, N) result(res)
+elemental function CAT(reflect_,SCALAR_TYPE_KIND)(I, N) result(res)
     implicit none
     SCALAR_TYPE_FULL, intent(in) :: I, N
     SCALAR_TYPE_FULL :: res
@@ -42,7 +26,7 @@ pure function CAT(reflect_,SCALAR_TYPE_KIND)(I, N) result(res)
     res = I - N * (N * I) * two
 end function
 
-pure function CAT(refract_,SCALAR_TYPE_KIND)(I, N, eta) result(res)
+elemental function CAT(refract_,SCALAR_TYPE_KIND)(I, N, eta) result(res)
     implicit none
     SCALAR_TYPE_FULL, intent(in) :: I, N
     SCALAR_TYPE_FULL, intent(in) :: eta

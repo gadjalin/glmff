@@ -4,7 +4,6 @@ pure function CAT(exp_,QUAT_TYPE_FULL)(q) result(res)
     type(QUAT_TYPE_FULL) :: res
 
     SCALAR_TYPE_FULL :: angle
-    type(CAT(VECTOR_TYPE_NAME,3)) :: v
 
     angle = sqrt(dot_product(q%v, q%v))
     if (angle < epsilon(angle)) return
@@ -21,14 +20,12 @@ pure function CAT(log_,QUAT_TYPE_FULL)(q) result(res)
     type(QUAT_TYPE_FULL) :: res
 
     SCALAR_TYPE_FULL :: lenv, t, qlen2
-    type(CAT(VECTOR_TYPE_NAME,3)) :: v
     SCALAR_TYPE_FULL, parameter :: zero = CAT(0_,SCALAR_TYPE_KIND)
     SCALAR_TYPE_FULL, parameter :: half = CAT(0.5_,SCALAR_TYPE_KIND)
     SCALAR_TYPE_FULL, parameter :: one = CAT(1_,SCALAR_TYPE_KIND)
     SCALAR_TYPE_FULL, parameter :: pi = acos(CAT(-1.0_,SCALAR_TYPE_KIND))
 
-    v%data  = q%v
-    lenv = length(v)
+    lenv = sqrt(dot_product(q%v, q%v))
 
     if (lenv < epsilon(lenv)) then
         if(q%w > zero) then

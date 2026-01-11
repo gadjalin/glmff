@@ -7,7 +7,6 @@
 #define VECTOR_TYPE_FULL CAT(VECTOR_TYPE_NAME,VECTOR_TYPE_SIZE)
 #include "vec_conversion.inc"
 #include "bvec_comparison.inc"
-#include "bvec_relational.inc"
 #include "bvec_common.inc"
 
 #undef SCALAR_TYPE_FULL
@@ -23,7 +22,6 @@
 #include "vec_conversion.inc"
 #include "vec_arithmetic.inc"
 #include "vec_comparison.inc"
-#include "vec_relational.inc"
 #include "vec_common.inc"
 
 #undef SCALAR_TYPE_FULL
@@ -39,11 +37,11 @@
 #include "vec_conversion.inc"
 #include "vec_arithmetic.inc"
 #include "vec_comparison.inc"
-#include "vec_relational.inc"
 #include "vec_common.inc"
 #include "fvec_common.inc"
-#include "fvec_trigonometric.inc"
 #include "fvec_geometric.inc"
+#include "fvec_trigonometric.inc"
+#include "fvec_reciprocal.inc"
 
 #undef SCALAR_TYPE_FULL
 #undef SCALAR_TYPE_KIND
@@ -58,9 +56,9 @@
 #include "vec_conversion.inc"
 #include "vec_arithmetic.inc"
 #include "vec_comparison.inc"
-#include "vec_relational.inc"
 #include "vec_common.inc"
 #include "fvec_common.inc"
-#include "fvec_trigonometric.inc"
 #include "fvec_geometric.inc"
+#include "fvec_trigonometric.inc"
+#include "fvec_reciprocal.inc"
 

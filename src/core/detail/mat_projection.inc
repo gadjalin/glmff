@@ -1,4 +1,4 @@
-pure function CAT(projectZO_,MATRIX_TYPE_NAME)(obj, modelview, proj, viewport) result(res)
+elemental function CAT(projectZO_,MATRIX_TYPE_NAME)(obj, modelview, proj, viewport) result(res)
     implicit none
     type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: obj
     type(CAT(VECTOR_TYPE_NAME,4)), intent(in) :: viewport
@@ -23,7 +23,7 @@ pure function CAT(projectZO_,MATRIX_TYPE_NAME)(obj, modelview, proj, viewport) r
     res%data = tmp%data(1:3)
 end function
 
-pure function CAT(projectNO_,MATRIX_TYPE_NAME)(obj, modelview, proj, viewport) result(res)
+elemental function CAT(projectNO_,MATRIX_TYPE_NAME)(obj, modelview, proj, viewport) result(res)
     implicit none
     type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: obj
     type(CAT(VECTOR_TYPE_NAME,4)), intent(in) :: viewport
@@ -46,7 +46,7 @@ pure function CAT(projectNO_,MATRIX_TYPE_NAME)(obj, modelview, proj, viewport) r
     res%data = tmp%data(1:3)
 end function
 
-pure function CAT(project_,MATRIX_TYPE_NAME)(obj, modelview, proj, viewport) result(res)
+elemental function CAT(project_,MATRIX_TYPE_NAME)(obj, modelview, proj, viewport) result(res)
     implicit none
     type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: obj
     type(CAT(VECTOR_TYPE_NAME,4)), intent(in) :: viewport
@@ -64,7 +64,7 @@ pure function CAT(project_,MATRIX_TYPE_NAME)(obj, modelview, proj, viewport) res
 #endif
 end function
 
-pure function CAT(unprojectZO_,MATRIX_TYPE_NAME)(win, modelview, proj, viewport) result(res)
+elemental function CAT(unprojectZO_,MATRIX_TYPE_NAME)(win, modelview, proj, viewport) result(res)
     implicit none
     type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: win
     type(CAT(VECTOR_TYPE_NAME,4)), intent(in) :: viewport
@@ -90,7 +90,7 @@ pure function CAT(unprojectZO_,MATRIX_TYPE_NAME)(win, modelview, proj, viewport)
     res%data = obj%data(1:3)
 end function
 
-pure function CAT(unprojectNO_,MATRIX_TYPE_NAME)(win, modelview, proj, viewport) result(res)
+elemental function CAT(unprojectNO_,MATRIX_TYPE_NAME)(win, modelview, proj, viewport) result(res)
     implicit none
     type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: win
     type(CAT(VECTOR_TYPE_NAME,4)), intent(in) :: viewport
@@ -115,7 +115,7 @@ pure function CAT(unprojectNO_,MATRIX_TYPE_NAME)(win, modelview, proj, viewport)
     res%data = obj%data(1:3)
 end function
 
-pure function CAT(unproject_,MATRIX_TYPE_NAME)(win, modelview, proj, viewport) result(res)
+elemental function CAT(unproject_,MATRIX_TYPE_NAME)(win, modelview, proj, viewport) result(res)
     implicit none
     type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: win
     type(CAT(VECTOR_TYPE_NAME,4)), intent(in) :: viewport
@@ -133,7 +133,7 @@ pure function CAT(unproject_,MATRIX_TYPE_NAME)(win, modelview, proj, viewport) r
 #endif
 end function
 
-pure function CAT(pickMatrix_,MATRIX_TYPE_NAME)(centre, delta, viewport) result(res)
+elemental function CAT(pickMatrix_,MATRIX_TYPE_NAME)(centre, delta, viewport) result(res)
     implicit none
     type(CAT(VECTOR_TYPE_NAME,2)), intent(in) :: centre, delta
     type(CAT(VECTOR_TYPE_NAME,4)), intent(in) :: viewport

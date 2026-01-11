@@ -1,4 +1,4 @@
-pure function CAT(floor_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(floor_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -6,7 +6,7 @@ pure function CAT(floor_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = floor(x%data, kind=SCALAR_TYPE_KIND)
 end function
 
-pure function CAT(ceil_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(ceil_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -14,7 +14,7 @@ pure function CAT(ceil_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = ceiling(x%data, kind=SCALAR_TYPE_KIND)
 end function
 
-pure function CAT(fract_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(fract_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -22,7 +22,7 @@ pure function CAT(fract_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = x%data - floor(x%data, kind=SCALAR_TYPE_KIND)
 end function
 
-pure function CAT(trunc_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(trunc_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -30,7 +30,7 @@ pure function CAT(trunc_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = aint(x%data, kind=SCALAR_TYPE_KIND)
 end function
 
-pure function CAT(round_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(round_,VECTOR_TYPE_FULL)(x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x
     type(VECTOR_TYPE_FULL) :: res
@@ -38,7 +38,7 @@ pure function CAT(round_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = nint(x%data, kind=SCALAR_TYPE_KIND)
 end function
 
-pure function CAT(mix_,VECTOR_TYPE_FULL)(x, y, a) result(res)
+elemental function CAT(mix_,VECTOR_TYPE_FULL)(x, y, a) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, y, a
     type(VECTOR_TYPE_FULL) :: res
@@ -48,7 +48,7 @@ pure function CAT(mix_,VECTOR_TYPE_FULL)(x, y, a) result(res)
     res%data = x%data*(one - a%data) + y%data*a%data
 end function
 
-pure function CAT3(mix_,VECTOR_TYPE_FULL,_scalar)(x, y, a) result(res)
+elemental function CAT3(mix_,VECTOR_TYPE_FULL,_scalar)(x, y, a) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: x, y
     SCALAR_TYPE_FULL, intent(in) :: a
@@ -59,7 +59,7 @@ pure function CAT3(mix_,VECTOR_TYPE_FULL,_scalar)(x, y, a) result(res)
     res%data = x%data*(one - a) + y%data*a
 end function
 
-pure function CAT(step_,VECTOR_TYPE_FULL)(edge, x) result(res)
+elemental function CAT(step_,VECTOR_TYPE_FULL)(edge, x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: edge, x
     type(VECTOR_TYPE_FULL) :: res
@@ -70,7 +70,7 @@ pure function CAT(step_,VECTOR_TYPE_FULL)(edge, x) result(res)
     res%data = merge(zero, one, x%data < edge%data)
 end function
 
-pure function CAT3(step_,VECTOR_TYPE_FULL,_scalar)(edge, x) result(res)
+elemental function CAT3(step_,VECTOR_TYPE_FULL,_scalar)(edge, x) result(res)
     implicit none
     SCALAR_TYPE_FULL, intent(in) :: edge
     type(VECTOR_TYPE_FULL), intent(in) :: x
@@ -82,7 +82,7 @@ pure function CAT3(step_,VECTOR_TYPE_FULL,_scalar)(edge, x) result(res)
     res%data = merge(zero, one, x%data < edge)
 end function
 
-pure function CAT(smoothstep_,VECTOR_TYPE_FULL)(edge0, edge1, x) result(res)
+elemental function CAT(smoothstep_,VECTOR_TYPE_FULL)(edge0, edge1, x) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: edge0, edge1, x
     type(VECTOR_TYPE_FULL) :: res
@@ -98,7 +98,7 @@ pure function CAT(smoothstep_,VECTOR_TYPE_FULL)(edge0, edge1, x) result(res)
     res%data = t*t*(three - two*t)
 end function
 
-pure function CAT3(smoothstep_,VECTOR_TYPE_FULL,_scalar)(edge0, edge1, x) result(res)
+elemental function CAT3(smoothstep_,VECTOR_TYPE_FULL,_scalar)(edge0, edge1, x) result(res)
     implicit none
     SCALAR_TYPE_FULL, intent(in) :: edge0, edge1
     type(VECTOR_TYPE_FULL), intent(in) :: x
@@ -115,7 +115,7 @@ pure function CAT3(smoothstep_,VECTOR_TYPE_FULL,_scalar)(edge0, edge1, x) result
     res%data = t*t*(three - two*t)
 end function
 
-pure function CAT(fma_,VECTOR_TYPE_FULL)(a, b, c) result(res)
+elemental function CAT(fma_,VECTOR_TYPE_FULL)(a, b, c) result(res)
     implicit none
     type(VECTOR_TYPE_FULL), intent(in) :: a, b, c
     type(VECTOR_TYPE_FULL) :: res
@@ -123,7 +123,7 @@ pure function CAT(fma_,VECTOR_TYPE_FULL)(a, b, c) result(res)
     res%data = a%data * b%data + c%data
 end function
 
-pure function CAT(isnan_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(isnan_,VECTOR_TYPE_FULL)(x) result(res)
     use, intrinsic :: ieee_arithmetic, only: ieee_is_nan
 
     implicit none
@@ -133,7 +133,7 @@ pure function CAT(isnan_,VECTOR_TYPE_FULL)(x) result(res)
     res%data = ieee_is_nan(x%data)
 end function
 
-pure function CAT(isinf_,VECTOR_TYPE_FULL)(x) result(res)
+elemental function CAT(isinf_,VECTOR_TYPE_FULL)(x) result(res)
     use, intrinsic :: ieee_arithmetic, only: ieee_is_finite, ieee_is_nan
 
     implicit none

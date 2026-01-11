@@ -1,17 +1,17 @@
-pure function CAT(translate_,MATRIX_TYPE_NAME)(mat, vec) result(res)
+elemental function CAT(translate_,MATRIX_TYPE_NAME)(m, v) result(res)
     implicit none
-    type(CAT(MATRIX_TYPE_NAME,4x4)), intent(in) :: mat
-    type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: vec
+    type(CAT(MATRIX_TYPE_NAME,4x4)), intent(in) :: m
+    type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: v
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
 
-    res = mat
-    res%data(:,4) = mat%data(:,1)*vec%data(1) + mat%data(:,2)*vec%data(2) &
-                  + mat%data(:,3)*vec%data(3) + mat%data(:,4)
+    res = m
+    res%data(:,4) = m%data(:,1)*v%data(1) + m%data(:,2)*v%data(2) &
+                  + m%data(:,3)*v%data(3) + m%data(:,4)
 end function
 
-pure function CAT(rotate_,MATRIX_TYPE_NAME)(mat, angle, axis) result(res)
+elemental function CAT(rotate_,MATRIX_TYPE_NAME)(m, angle, axis) result(res)
     implicit none
-    type(CAT(MATRIX_TYPE_NAME,4x4)), intent(in) :: mat
+    type(CAT(MATRIX_TYPE_NAME,4x4)), intent(in) :: m
     real(kind=SCALAR_TYPE_KIND), intent(in) :: angle
     type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: axis
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -38,25 +38,25 @@ pure function CAT(rotate_,MATRIX_TYPE_NAME)(mat, angle, axis) result(res)
     rot%data(2,3) =     tmp%data(3) * u%data(2) - s * u%data(1)
     rot%data(3,3) = c + tmp%data(3) * u%data(3)
 
-    res%data = matmul(mat%data, rot%data)
+    res%data = matmul(m%data, rot%data)
 end function
 
-pure function CAT(scale_,MATRIX_TYPE_NAME)(mat, vec) result(res)
+elemental function CAT(scale_,MATRIX_TYPE_NAME)(m, v) result(res)
     implicit none
-    type(CAT(MATRIX_TYPE_NAME,4x4)), intent(in) :: mat
-    type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: vec
+    type(CAT(MATRIX_TYPE_NAME,4x4)), intent(in) :: m
+    type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: v
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
 
-    res%data(:,1) = mat%data(:,1)*vec%data(1)
-    res%data(:,2) = mat%data(:,2)*vec%data(2)
-    res%data(:,3) = mat%data(:,3)*vec%data(3)
-    res%data(:,4) = mat%data(:,4)
+    res%data(:,1) = m%data(:,1)*v%data(1)
+    res%data(:,2) = m%data(:,2)*v%data(2)
+    res%data(:,3) = m%data(:,3)*v%data(3)
+    res%data(:,4) = m%data(:,4)
 end function
 
-pure function CAT(shear_,MATRIX_TYPE_NAME)(mat, vec, lx, ly, lz) result(res)
+elemental function CAT(shear_,MATRIX_TYPE_NAME)(m, v, lx, ly, lz) result(res)
     implicit none
-    type(CAT(MATRIX_TYPE_NAME,4x4)), intent(in) :: mat
-    type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: vec
+    type(CAT(MATRIX_TYPE_NAME,4x4)), intent(in) :: m
+    type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: v
     type(CAT(VECTOR_TYPE_NAME,2)), intent(in) :: lx, ly, lz
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
 
@@ -67,15 +67,15 @@ pure function CAT(shear_,MATRIX_TYPE_NAME)(mat, vec, lx, ly, lz) result(res)
 
     p = [sum(lx%data), sum(ly%data), sum(lz%data)]
     sh = reshape( &
-        [one,        lx%data(1), lx%data(2), -p(1) * vec%data(1), &
-         ly%data(1), one,        ly%data(2), -p(2) * vec%data(2), &
-         lz%data(1), lz%data(2), one,        -p(3) * vec%data(3), &
+        [one,        lx%data(1), lx%data(2), -p(1) * v%data(1), &
+         ly%data(1), one,        ly%data(2), -p(2) * v%data(2), &
+         lz%data(1), lz%data(2), one,        -p(3) * v%data(3), &
          zero,       zero,       zero,       one], [4,4])
 
-    res%data = matmul(mat%data, sh)
+    res%data = matmul(m%data, sh)
 end function
 
-pure function CAT(lookAtRH_,MATRIX_TYPE_NAME)(eye, centre, up) result(res)
+elemental function CAT(lookAtRH_,MATRIX_TYPE_NAME)(eye, centre, up) result(res)
     implicit none
     type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: eye, centre, up
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -100,7 +100,7 @@ pure function CAT(lookAtRH_,MATRIX_TYPE_NAME)(eye, centre, up) result(res)
     res%data(3,4) =  dot(f, eye)
 end function
 
-pure function CAT(lookAtLH_,MATRIX_TYPE_NAME)(eye, centre, up) result(res)
+elemental function CAT(lookAtLH_,MATRIX_TYPE_NAME)(eye, centre, up) result(res)
     implicit none
     type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: eye, centre, up
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -125,7 +125,7 @@ pure function CAT(lookAtLH_,MATRIX_TYPE_NAME)(eye, centre, up) result(res)
     res%data(3,4) = -dot(f, eye)
 end function
 
-pure function CAT(lookAt_,MATRIX_TYPE_NAME)(eye, centre, up) result(res)
+elemental function CAT(lookAt_,MATRIX_TYPE_NAME)(eye, centre, up) result(res)
     implicit none
     type(CAT(VECTOR_TYPE_NAME,3)), intent(in) :: eye, centre, up
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res

@@ -280,41 +280,6 @@ module glmff_vec
         module procedure ne_dvec4
     end interface operator(/=)
 
-    public :: operator(.and.)
-    interface operator(.and.)
-        module procedure and_bvec2
-        module procedure and_bvec3
-        module procedure and_bvec4
-    end interface operator(.and.)
-
-    public :: operator(.or.)
-    interface operator(.or.)
-        module procedure or_bvec2
-        module procedure or_bvec3
-        module procedure or_bvec4
-    end interface operator(.or.)
-
-    public :: any
-    interface any
-        module procedure any_bvec2
-        module procedure any_bvec3
-        module procedure any_bvec4
-    end interface any
-
-    public :: all
-    interface all
-        module procedure all_bvec2
-        module procedure all_bvec3
-        module procedure all_bvec4
-    end interface all
-
-    public :: operator(.not.)
-    interface operator(.not.)
-        module procedure not_bvec2
-        module procedure not_bvec3
-        module procedure not_bvec4
-    end interface operator(.not.)
-
     ! -------------
     ! --- Utilities
     ! -------------
@@ -390,96 +355,6 @@ module glmff_vec
         module procedure refract_vec4
         module procedure refract_dvec4
     end interface refract
-
-    public :: lessThan
-    interface lessThan
-        module procedure lessThan_ivec2
-        module procedure lessThan_vec2
-        module procedure lessThan_dvec2
-
-        module procedure lessThan_ivec3
-        module procedure lessThan_vec3
-        module procedure lessThan_dvec3
-
-        module procedure lessThan_ivec4
-        module procedure lessThan_vec4
-        module procedure lessThan_dvec4
-    end interface lessThan
-
-    public :: lessThanEqual
-    interface lessThanEqual
-        module procedure lessThanEqual_ivec2
-        module procedure lessThanEqual_vec2
-        module procedure lessThanEqual_dvec2
-
-        module procedure lessThanEqual_ivec3
-        module procedure lessThanEqual_vec3
-        module procedure lessThanEqual_dvec3
-
-        module procedure lessThanEqual_ivec4
-        module procedure lessThanEqual_vec4
-        module procedure lessThanEqual_dvec4
-    end interface lessThanEqual
-
-    public :: greaterThan
-    interface greaterThan
-        module procedure greaterThan_ivec2
-        module procedure greaterThan_vec2
-        module procedure greaterThan_dvec2
-
-        module procedure greaterThan_ivec3
-        module procedure greaterThan_vec3
-        module procedure greaterThan_dvec3
-
-        module procedure greaterThan_ivec4
-        module procedure greaterThan_vec4
-        module procedure greaterThan_dvec4
-    end interface greaterThan
-
-    public :: greaterThanEqual
-    interface greaterThanEqual
-        module procedure greaterThanEqual_ivec2
-        module procedure greaterThanEqual_vec2
-        module procedure greaterThanEqual_dvec2
-
-        module procedure greaterThanEqual_ivec3
-        module procedure greaterThanEqual_vec3
-        module procedure greaterThanEqual_dvec3
-
-        module procedure greaterThanEqual_ivec4
-        module procedure greaterThanEqual_vec4
-        module procedure greaterThanEqual_dvec4
-    end interface greaterThanEqual
-
-    public :: equal
-    interface equal
-        module procedure equal_ivec2
-        module procedure equal_vec2
-        module procedure equal_dvec2
-
-        module procedure equal_ivec3
-        module procedure equal_vec3
-        module procedure equal_dvec3
-
-        module procedure equal_ivec4
-        module procedure equal_vec4
-        module procedure equal_dvec4
-    end interface equal
-
-    public :: notEqual
-    interface notEqual
-        module procedure notEqual_ivec2
-        module procedure notEqual_vec2
-        module procedure notEqual_dvec2
-
-        module procedure notEqual_ivec3
-        module procedure notEqual_vec3
-        module procedure notEqual_dvec3
-
-        module procedure notEqual_ivec4
-        module procedure notEqual_vec4
-        module procedure notEqual_dvec4
-    end interface notEqual
 
     public :: abs
     interface abs
@@ -594,12 +469,12 @@ module glmff_vec
         module procedure clamp_ivec2_scalar
         module procedure clamp_vec2_scalar
         module procedure clamp_dvec2_scalar
-        module procedure clamp_ivec2_scalar_low
-        module procedure clamp_vec2_scalar_low
-        module procedure clamp_dvec2_scalar_low
-        module procedure clamp_ivec2_scalar_high
-        module procedure clamp_vec2_scalar_high
-        module procedure clamp_dvec2_scalar_high
+        module procedure clamp_ivec2_scalar_min
+        module procedure clamp_vec2_scalar_min
+        module procedure clamp_dvec2_scalar_min
+        module procedure clamp_ivec2_scalar_max
+        module procedure clamp_vec2_scalar_max
+        module procedure clamp_dvec2_scalar_max
 
         module procedure clamp_ivec3
         module procedure clamp_vec3
@@ -607,12 +482,12 @@ module glmff_vec
         module procedure clamp_ivec3_scalar
         module procedure clamp_vec3_scalar
         module procedure clamp_dvec3_scalar
-        module procedure clamp_ivec3_scalar_low
-        module procedure clamp_vec3_scalar_low
-        module procedure clamp_dvec3_scalar_low
-        module procedure clamp_ivec3_scalar_high
-        module procedure clamp_vec3_scalar_high
-        module procedure clamp_dvec3_scalar_high
+        module procedure clamp_ivec3_scalar_min
+        module procedure clamp_vec3_scalar_min
+        module procedure clamp_dvec3_scalar_min
+        module procedure clamp_ivec3_scalar_max
+        module procedure clamp_vec3_scalar_max
+        module procedure clamp_dvec3_scalar_max
 
         module procedure clamp_ivec4
         module procedure clamp_vec4
@@ -620,12 +495,12 @@ module glmff_vec
         module procedure clamp_ivec4_scalar
         module procedure clamp_vec4_scalar
         module procedure clamp_dvec4_scalar
-        module procedure clamp_ivec4_scalar_low
-        module procedure clamp_vec4_scalar_low
-        module procedure clamp_dvec4_scalar_low
-        module procedure clamp_ivec4_scalar_high
-        module procedure clamp_vec4_scalar_high
-        module procedure clamp_dvec4_scalar_high
+        module procedure clamp_ivec4_scalar_min
+        module procedure clamp_vec4_scalar_min
+        module procedure clamp_dvec4_scalar_min
+        module procedure clamp_ivec4_scalar_max
+        module procedure clamp_vec4_scalar_max
+        module procedure clamp_dvec4_scalar_max
     end interface clamp
 
     public :: min
@@ -967,6 +842,150 @@ module glmff_vec
         module procedure atanh_vec4
         module procedure atanh_dvec4
     end interface atanh
+
+    public :: sec
+    interface sec
+        module procedure sec_vec2
+        module procedure sec_dvec2
+
+        module procedure sec_vec3
+        module procedure sec_dvec3
+
+        module procedure sec_vec4
+        module procedure sec_dvec4
+    end interface sec
+
+    public :: csc
+    interface csc
+        module procedure csc_vec2
+        module procedure csc_dvec2
+
+        module procedure csc_vec3
+        module procedure csc_dvec3
+
+        module procedure csc_vec4
+        module procedure csc_dvec4
+    end interface csc
+
+    public :: cot
+    interface cot
+        module procedure cot_vec2
+        module procedure cot_dvec2
+
+        module procedure cot_vec3
+        module procedure cot_dvec3
+
+        module procedure cot_vec4
+        module procedure cot_dvec4
+    end interface cot
+
+    public :: asec
+    interface asec
+        module procedure asec_vec2
+        module procedure asec_dvec2
+
+        module procedure asec_vec3
+        module procedure asec_dvec3
+
+        module procedure asec_vec4
+        module procedure asec_dvec4
+    end interface asec
+
+    public :: acsc
+    interface acsc
+        module procedure acsc_vec2
+        module procedure acsc_dvec2
+
+        module procedure acsc_vec3
+        module procedure acsc_dvec3
+
+        module procedure acsc_vec4
+        module procedure acsc_dvec4
+    end interface acsc
+
+    public :: acot
+    interface acot
+        module procedure acot_vec2
+        module procedure acot_dvec2
+
+        module procedure acot_vec3
+        module procedure acot_dvec3
+
+        module procedure acot_vec4
+        module procedure acot_dvec4
+    end interface acot
+
+    public :: sech
+    interface sech
+        module procedure sech_vec2
+        module procedure sech_dvec2
+
+        module procedure sech_vec3
+        module procedure sech_dvec3
+
+        module procedure sech_vec4
+        module procedure sech_dvec4
+    end interface sech
+
+    public :: csch
+    interface csch
+        module procedure csch_vec2
+        module procedure csch_dvec2
+
+        module procedure csch_vec3
+        module procedure csch_dvec3
+
+        module procedure csch_vec4
+        module procedure csch_dvec4
+    end interface csch
+
+    public :: coth
+    interface coth
+        module procedure coth_vec2
+        module procedure coth_dvec2
+
+        module procedure coth_vec3
+        module procedure coth_dvec3
+
+        module procedure coth_vec4
+        module procedure coth_dvec4
+    end interface coth
+
+    public :: asech
+    interface asech
+        module procedure asech_vec2
+        module procedure asech_dvec2
+
+        module procedure asech_vec3
+        module procedure asech_dvec3
+
+        module procedure asech_vec4
+        module procedure asech_dvec4
+    end interface asech
+
+    public :: acsch
+    interface acsch
+        module procedure acsch_vec2
+        module procedure acsch_dvec2
+
+        module procedure acsch_vec3
+        module procedure acsch_dvec3
+
+        module procedure acsch_vec4
+        module procedure acsch_dvec4
+    end interface acsch
+
+    public :: acoth
+    interface acoth
+        module procedure acoth_vec2
+        module procedure acoth_dvec2
+
+        module procedure acoth_vec3
+        module procedure acoth_dvec3
+
+        module procedure acoth_vec4
+        module procedure acoth_dvec4
+    end interface acoth
 
     contains
 

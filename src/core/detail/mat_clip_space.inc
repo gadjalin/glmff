@@ -1,4 +1,4 @@
-pure function CAT(ortho_,MATRIX_TYPE_NAME)(left, right, bottom, top) result(res)
+elemental function CAT(ortho_,MATRIX_TYPE_NAME)(left, right, bottom, top) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -13,7 +13,7 @@ pure function CAT(ortho_,MATRIX_TYPE_NAME)(left, right, bottom, top) result(res)
     res%data(2,4) = - (top + bottom) / (top - bottom)
 end function
 
-pure function CAT(orthoLH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(orthoLH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -29,7 +29,7 @@ pure function CAT(orthoLH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, 
     res%data(3,4) = - near / (far - near)
 end function
 
-pure function CAT(orthoLH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(orthoLH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -44,7 +44,7 @@ pure function CAT(orthoLH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, 
     res%data(3,4) = - (far + near) / (far - near)
 end function
 
-pure function CAT(orthoRH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(orthoRH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -60,7 +60,7 @@ pure function CAT(orthoRH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, 
     res%data(3,4) = - near / (far - near)
 end function
 
-pure function CAT(orthoRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(orthoRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -75,7 +75,7 @@ pure function CAT(orthoRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, 
     res%data(3,4) = - (far + near) / (far - near)
 end function
 
-pure function CAT(orthoZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(orthoZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -87,7 +87,7 @@ pure function CAT(orthoZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far
 #endif
 end function
 
-pure function CAT(orthoNO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(orthoNO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -99,7 +99,7 @@ pure function CAT(orthoNO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far
 #endif
 end function
 
-pure function CAT(orthoLH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(orthoLH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -111,7 +111,7 @@ pure function CAT(orthoLH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far
 #endif
 end function
 
-pure function CAT(orthoRH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(orthoRH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -123,7 +123,7 @@ pure function CAT(orthoRH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far
 #endif
 end function
 
-pure function CAT(ortho_full_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(ortho_full_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -139,7 +139,7 @@ pure function CAT(ortho_full_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, 
 #endif
 end function
 
-pure function CAT(frustumLH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(frustumLH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -158,7 +158,7 @@ pure function CAT(frustumLH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near
     res%data(3,4) = -(far * near) / (far - near)
 end function
 
-pure function CAT(frustumLH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(frustumLH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -177,7 +177,7 @@ pure function CAT(frustumLH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near
     res%data(3,4) = -(two * far * near) / (far - near)
 end function
 
-pure function CAT(frustumRH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(frustumRH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -196,7 +196,7 @@ pure function CAT(frustumRH_ZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near
     res%data(3,4) = -(far * near) / (far - near)
 end function
 
-pure function CAT(frustumRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(frustumRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -215,7 +215,7 @@ pure function CAT(frustumRH_NO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near
     res%data(3,4) = -(two * far * near) / (far - near)
 end function
 
-pure function CAT(frustumZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(frustumZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -227,7 +227,7 @@ pure function CAT(frustumZO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, f
 #endif
 end function
 
-pure function CAT(frustumNO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(frustumNO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -239,7 +239,7 @@ pure function CAT(frustumNO_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, f
 #endif
 end function
 
-pure function CAT(frustumLH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(frustumLH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -251,7 +251,7 @@ pure function CAT(frustumLH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, f
 #endif
 end function
 
-pure function CAT(frustumRH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(frustumRH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -263,7 +263,7 @@ pure function CAT(frustumRH_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, f
 #endif
 end function
 
-pure function CAT(frustum_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
+elemental function CAT(frustum_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: left, right, bottom, top, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -279,7 +279,7 @@ pure function CAT(frustum_,MATRIX_TYPE_NAME)(left, right, bottom, top, near, far
 #endif
 end function
 
-pure function CAT(perspectiveRH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+elemental function CAT(perspectiveRH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -299,7 +299,7 @@ pure function CAT(perspectiveRH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) r
     res%data(3,4) = - (far * near) / (far - near)
 end function
 
-pure function CAT(perspectiveRH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+elemental function CAT(perspectiveRH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -320,7 +320,7 @@ pure function CAT(perspectiveRH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) r
     res%data(3,4) = - (two * far * near) / (far - near)
 end function
 
-pure function CAT(perspectiveLH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+elemental function CAT(perspectiveLH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -340,7 +340,7 @@ pure function CAT(perspectiveLH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) r
     res%data(3,4) = - (far * near) / (far - near)
 end function
 
-pure function CAT(perspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+elemental function CAT(perspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -361,7 +361,7 @@ pure function CAT(perspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) r
     res%data(3,4) = - (two * far * near) / (far - near)
 end function
 
-pure function CAT(perspectiveZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+elemental function CAT(perspectiveZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -373,7 +373,7 @@ pure function CAT(perspectiveZO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) resu
 #endif
 end function
 
-pure function CAT(perspectiveNO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+elemental function CAT(perspectiveNO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -385,7 +385,7 @@ pure function CAT(perspectiveNO_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) resu
 #endif
 end function
 
-pure function CAT(perspectiveLH_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+elemental function CAT(perspectiveLH_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -397,7 +397,7 @@ pure function CAT(perspectiveLH_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) resu
 #endif
 end function
 
-pure function CAT(perspectiveRH_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+elemental function CAT(perspectiveRH_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -409,7 +409,7 @@ pure function CAT(perspectiveRH_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) resu
 #endif
 end function
 
-pure function CAT(perspective_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
+elemental function CAT(perspective_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -425,7 +425,7 @@ pure function CAT(perspective_,MATRIX_TYPE_NAME)(fovy, aspect, near, far) result
 #endif
 end function
 
-pure function CAT(perspectiveFovRH_ZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+elemental function CAT(perspectiveFovRH_ZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -446,7 +446,7 @@ pure function CAT(perspectiveFovRH_ZO_,MATRIX_TYPE_NAME)(fov, width, height, nea
     res%data(3,4) = - (far * near) / (far - near)
 end function
 
-pure function CAT(perspectiveFovRH_NO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+elemental function CAT(perspectiveFovRH_NO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -468,7 +468,7 @@ pure function CAT(perspectiveFovRH_NO_,MATRIX_TYPE_NAME)(fov, width, height, nea
     res%data(3,4) = - (two * far * near) / (far - near)
 end function
 
-pure function CAT(perspectiveFovLH_ZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+elemental function CAT(perspectiveFovLH_ZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -489,7 +489,7 @@ pure function CAT(perspectiveFovLH_ZO_,MATRIX_TYPE_NAME)(fov, width, height, nea
     res%data(3,4) = - (far * near) / (far - near)
 end function
 
-pure function CAT(perspectiveFovLH_NO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+elemental function CAT(perspectiveFovLH_NO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -511,7 +511,7 @@ pure function CAT(perspectiveFovLH_NO_,MATRIX_TYPE_NAME)(fov, width, height, nea
     res%data(3,4) = - (two * far * near) / (far - near)
 end function
 
-pure function CAT(perspectiveFovZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+elemental function CAT(perspectiveFovZO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -523,7 +523,7 @@ pure function CAT(perspectiveFovZO_,MATRIX_TYPE_NAME)(fov, width, height, near, 
 #endif
 end function
 
-pure function CAT(perspectiveFovNO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+elemental function CAT(perspectiveFovNO_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -535,7 +535,7 @@ pure function CAT(perspectiveFovNO_,MATRIX_TYPE_NAME)(fov, width, height, near, 
 #endif
 end function
 
-pure function CAT(perspectiveFovLH_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+elemental function CAT(perspectiveFovLH_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -547,7 +547,7 @@ pure function CAT(perspectiveFovLH_,MATRIX_TYPE_NAME)(fov, width, height, near, 
 #endif
 end function
 
-pure function CAT(perspectiveFovRH_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+elemental function CAT(perspectiveFovRH_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -559,7 +559,7 @@ pure function CAT(perspectiveFovRH_,MATRIX_TYPE_NAME)(fov, width, height, near, 
 #endif
 end function
 
-pure function CAT(perspectiveFov_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
+elemental function CAT(perspectiveFov_,MATRIX_TYPE_NAME)(fov, width, height, near, far) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fov, width, height, near, far
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -575,7 +575,7 @@ pure function CAT(perspectiveFov_,MATRIX_TYPE_NAME)(fov, width, height, near, fa
 #endif
 end function
 
-pure function CAT(infinitePerspectiveRH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+elemental function CAT(infinitePerspectiveRH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -600,7 +600,7 @@ pure function CAT(infinitePerspectiveRH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near
     res%data(3,4) = - near
 end function
 
-pure function CAT(infinitePerspectiveRH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+elemental function CAT(infinitePerspectiveRH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -625,7 +625,7 @@ pure function CAT(infinitePerspectiveRH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near
     res%data(3,4) = - two * near
 end function
 
-pure function CAT(infinitePerspectiveLH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+elemental function CAT(infinitePerspectiveLH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -650,7 +650,7 @@ pure function CAT(infinitePerspectiveLH_ZO_,MATRIX_TYPE_NAME)(fovy, aspect, near
     res%data(3,4) = - near
 end function
 
-pure function CAT(infinitePerspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+elemental function CAT(infinitePerspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -675,7 +675,7 @@ pure function CAT(infinitePerspectiveLH_NO_,MATRIX_TYPE_NAME)(fovy, aspect, near
     res%data(3,4) = - two * near
 end function
 
-pure function CAT(infinitePerspectiveLH_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+elemental function CAT(infinitePerspectiveLH_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -687,7 +687,7 @@ pure function CAT(infinitePerspectiveLH_,MATRIX_TYPE_NAME)(fovy, aspect, near) r
 #endif
 end function
 
-pure function CAT(infinitePerspectiveRH_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+elemental function CAT(infinitePerspectiveRH_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -699,7 +699,7 @@ pure function CAT(infinitePerspectiveRH_,MATRIX_TYPE_NAME)(fovy, aspect, near) r
 #endif
 end function
 
-pure function CAT(infinitePerspective_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+elemental function CAT(infinitePerspective_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -715,7 +715,7 @@ pure function CAT(infinitePerspective_,MATRIX_TYPE_NAME)(fovy, aspect, near) res
 #endif
 end function
 
-pure function CAT(tweakedInfinitePerspective_eps_,MATRIX_TYPE_NAME)(fovy, aspect, near, eps) result(res)
+elemental function CAT(tweakedInfinitePerspective_eps_,MATRIX_TYPE_NAME)(fovy, aspect, near, eps) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near, eps
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res
@@ -740,7 +740,7 @@ pure function CAT(tweakedInfinitePerspective_eps_,MATRIX_TYPE_NAME)(fovy, aspect
     res%data(3,4) = - (eps - two) * near
 end function
 
-pure function CAT(tweakedInfinitePerspective_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
+elemental function CAT(tweakedInfinitePerspective_,MATRIX_TYPE_NAME)(fovy, aspect, near) result(res)
     implicit none
     real(kind=SCALAR_TYPE_KIND), intent(in) :: fovy, aspect, near
     type(CAT(MATRIX_TYPE_NAME,4x4)) :: res

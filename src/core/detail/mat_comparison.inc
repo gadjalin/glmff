@@ -1,14 +1,14 @@
-pure logical function CAT(eq_,MATRIX_TYPE_FULL)(lhs, rhs)
+pure logical function CAT(eq_,MATRIX_TYPE_FULL)(a, b) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: lhs, rhs
+    type(MATRIX_TYPE_FULL), intent(in) :: a, b
 
-    CAT(eq_,MATRIX_TYPE_FULL) = all(lhs%data == rhs%data)
+    res = all(a%data == b%data)
 end function
 
-pure logical function CAT(ne_,MATRIX_TYPE_FULL)(lhs, rhs)
+pure logical function CAT(ne_,MATRIX_TYPE_FULL)(a, b) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: lhs, rhs
+    type(MATRIX_TYPE_FULL), intent(in) :: a, b
 
-    CAT(ne_,MATRIX_TYPE_FULL) = any(lhs%data /= rhs%data)
+    res = any(a%data /= b%data)
 end function
 

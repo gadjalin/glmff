@@ -1,5 +1,6 @@
 module glmff
 
+    use glmff_scalar
     use glmff_vec
     use glmff_mat
     use glmff_quat
@@ -42,11 +43,18 @@ module glmff
 
     public :: operator(+), operator(-), operator(*), operator(/), operator(**)
     public :: operator(.dot.), dot, operator(.cross.), cross
-    public :: operator(==), operator(/=), operator(.not.), any, all
-    public :: lessThan, lessThanEqual, greaterThan, greaterThanEqual, equal, notEqual
+    public :: operator(==), operator(/=)
 
     public :: min, max, abs, sign, mod, exp, log, sqrt
-    public :: floor, ceil, fract, trunc, round, clamp
+    public :: floor, ceil, fract, trunc, round, clamp, frexp, ldexp
+    public :: fmin, fmax, fclamp
+    public :: isinf, isnan
+    public :: repeat, mirrorClamp, mirrorRepeat
+    public :: floatBitsToInt, intBitsToFloat
+
+    public :: radians, degrees
+    public :: sec, csc, cot, asec, acsc, acot
+    public :: sech, csch, coth, asech, acsch, acoth
 
     public :: length, distance, normalize, faceforward, reflect, refract
     public :: mix, step, smoothstep, fma

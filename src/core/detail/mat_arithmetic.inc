@@ -1,131 +1,131 @@
-pure function CAT(pos_,MATRIX_TYPE_FULL)(mat) result(res)
+elemental function CAT(pos_,MATRIX_TYPE_FULL)(x) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: mat
+    type(MATRIX_TYPE_FULL), intent(in) :: x
     type(MATRIX_TYPE_FULL) :: res
 
-    res = mat
+    res = x
 end function
 
-pure function CAT(add_,MATRIX_TYPE_FULL)(lhs, rhs) result(res)
+elemental function CAT(add_,MATRIX_TYPE_FULL)(a, b) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: lhs, rhs
+    type(MATRIX_TYPE_FULL), intent(in) :: a, b
     type(MATRIX_TYPE_FULL) :: res
 
-    res%data = lhs%data + rhs%data
+    res%data = a%data + b%data
 end function
 
-pure function CAT3(add_,MATRIX_TYPE_FULL,_scalar)(mat, scalar) result(res)
+elemental function CAT3(add_,MATRIX_TYPE_FULL,_scalar)(a, s) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: mat
-    SCALAR_TYPE_FULL, intent(in) :: scalar
+    type(MATRIX_TYPE_FULL), intent(in) :: a
+    SCALAR_TYPE_FULL, intent(in) :: s
     type(MATRIX_TYPE_FULL) :: res
 
-    res%data = mat%data + scalar
+    res%data = a%data + s
 end function
 
-pure function CAT(neg_,MATRIX_TYPE_FULL)(mat) result(res)
+elemental function CAT(neg_,MATRIX_TYPE_FULL)(x) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: mat
+    type(MATRIX_TYPE_FULL), intent(in) :: x
     type(MATRIX_TYPE_FULL) :: res
 
-    res%data = -mat%data
+    res%data = -x%data
 end function
 
-pure function CAT(sub_,MATRIX_TYPE_FULL)(lhs, rhs) result(res)
+elemental function CAT(sub_,MATRIX_TYPE_FULL)(a, b) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: lhs, rhs
+    type(MATRIX_TYPE_FULL), intent(in) :: a, b
     type(MATRIX_TYPE_FULL) :: res
 
-    res%data = lhs%data - rhs%data
+    res%data = a%data - b%data
 end function
 
-pure function CAT3(sub_,MATRIX_TYPE_FULL,_scalar)(mat, scalar) result(res)
+elemental function CAT3(sub_,MATRIX_TYPE_FULL,_scalar)(a, s) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: mat
-    SCALAR_TYPE_FULL, intent(in) :: scalar
+    type(MATRIX_TYPE_FULL), intent(in) :: a
+    SCALAR_TYPE_FULL, intent(in) :: s
     type(MATRIX_TYPE_FULL) :: res
 
-    res%data = mat%data - scalar
+    res%data = a%data - s
 end function
 
-pure function CAT3(mul_,MATRIX_TYPE_FULL,_mat2)(lhs, rhs) result(res)
+elemental function CAT3(mul_,MATRIX_TYPE_FULL,_mat2)(a, b) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: lhs
-    type(CAT3(MATRIX_TYPE_NAME,2x,MATRIX_TYPE_NCOL)), intent(in) :: rhs
+    type(MATRIX_TYPE_FULL), intent(in) :: a
+    type(CAT3(MATRIX_TYPE_NAME,2x,MATRIX_TYPE_NCOL)), intent(in) :: b
     type(CAT3(MATRIX_TYPE_NAME,2x,MATRIX_TYPE_NROW)) :: res
 
-    res%data = matmul(lhs%data, rhs%data)
+    res%data = matmul(a%data, b%data)
 end function
 
-pure function CAT3(mul_,MATRIX_TYPE_FULL,_mat3)(lhs, rhs) result(res)
+elemental function CAT3(mul_,MATRIX_TYPE_FULL,_mat3)(a, b) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: lhs
-    type(CAT3(MATRIX_TYPE_NAME,3x,MATRIX_TYPE_NCOL)), intent(in) :: rhs
+    type(MATRIX_TYPE_FULL), intent(in) :: a
+    type(CAT3(MATRIX_TYPE_NAME,3x,MATRIX_TYPE_NCOL)), intent(in) :: b
     type(CAT3(MATRIX_TYPE_NAME,3x,MATRIX_TYPE_NROW)) :: res
 
-    res%data = matmul(lhs%data, rhs%data)
+    res%data = matmul(a%data, b%data)
 end function
 
-pure function CAT3(mul_,MATRIX_TYPE_FULL,_mat4)(lhs, rhs) result(res)
+elemental function CAT3(mul_,MATRIX_TYPE_FULL,_mat4)(a, b) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: lhs
-    type(CAT3(MATRIX_TYPE_NAME,4x,MATRIX_TYPE_NCOL)), intent(in) :: rhs
+    type(MATRIX_TYPE_FULL), intent(in) :: a
+    type(CAT3(MATRIX_TYPE_NAME,4x,MATRIX_TYPE_NCOL)), intent(in) :: b
     type(CAT3(MATRIX_TYPE_NAME,4x,MATRIX_TYPE_NROW)) :: res
 
-    res%data = matmul(lhs%data, rhs%data)
+    res%data = matmul(a%data, b%data)
 end function
 
-pure function CAT3(mul_,MATRIX_TYPE_FULL,_scalar)(mat, scalar) result(res)
+elemental function CAT3(mul_,MATRIX_TYPE_FULL,_scalar)(a, s) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: mat
-    SCALAR_TYPE_FULL, intent(in) :: scalar
+    type(MATRIX_TYPE_FULL), intent(in) :: a
+    SCALAR_TYPE_FULL, intent(in) :: s
     type(MATRIX_TYPE_FULL) :: res
 
-    res%data = mat%data * scalar
+    res%data = a%data * s
 end function
 
-pure function CAT(mul_scalar_,MATRIX_TYPE_FULL)(scalar, mat) result(res)
+elemental function CAT(mul_scalar_,MATRIX_TYPE_FULL)(s, a) result(res)
     implicit none
-    SCALAR_TYPE_FULL, intent(in) :: scalar
-    type(MATRIX_TYPE_FULL), intent(in) :: mat
+    SCALAR_TYPE_FULL, intent(in) :: s
+    type(MATRIX_TYPE_FULL), intent(in) :: a
     type(MATRIX_TYPE_FULL) :: res
 
-    res%data = scalar * mat%data
+    res%data = s * a%data
 end function
 
-pure function CAT3(mul_,MATRIX_TYPE_FULL,_vec)(mat, vec) result(res)
+elemental function CAT3(mul_,MATRIX_TYPE_FULL,_vec)(a, v) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: mat
-    type(ROW_TYPE_FULL), intent(in) :: vec
+    type(MATRIX_TYPE_FULL), intent(in) :: a
+    type(ROW_TYPE_FULL), intent(in) :: v
     type(COL_TYPE_FULL) :: res
 
-    res%data = matmul(mat%data, vec%data)
+    res%data = matmul(a%data, v%data)
 end function
 
-pure function CAT(mul_vec_,MATRIX_TYPE_FULL)(vec, mat) result(res)
+elemental function CAT(mul_vec_,MATRIX_TYPE_FULL)(v, a) result(res)
     implicit none
-    type(COL_TYPE_FULL), intent(in) :: vec
-    type(MATRIX_TYPE_FULL), intent(in) :: mat
+    type(COL_TYPE_FULL), intent(in) :: v
+    type(MATRIX_TYPE_FULL), intent(in) :: a
     type(ROW_TYPE_FULL) :: res
 
-    res%data = matmul(vec%data, mat%data)
+    res%data = matmul(v%data, a%data)
 end function
 
-pure function CAT3(div_,MATRIX_TYPE_FULL,_scalar)(mat, scalar) result(res)
+elemental function CAT3(div_,MATRIX_TYPE_FULL,_scalar)(a, s) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: mat
-    SCALAR_TYPE_FULL, intent(in) :: scalar
+    type(MATRIX_TYPE_FULL), intent(in) :: a
+    SCALAR_TYPE_FULL, intent(in) :: s
     type(MATRIX_TYPE_FULL) :: res
 
-    res%data = mat%data / scalar
+    res%data = a%data / s
 end function
 
-pure function CAT(div_scalar_,MATRIX_TYPE_FULL)(scalar, mat) result(res)
+elemental function CAT(div_scalar_,MATRIX_TYPE_FULL)(s, a) result(res)
     implicit none
-    type(MATRIX_TYPE_FULL), intent(in) :: mat
-    SCALAR_TYPE_FULL, intent(in) :: scalar
+    type(MATRIX_TYPE_FULL), intent(in) :: a
+    SCALAR_TYPE_FULL, intent(in) :: s
     type(MATRIX_TYPE_FULL) :: res
 
-    res%data = scalar / mat%data
+    res%data = s / a%data
 end function
 
